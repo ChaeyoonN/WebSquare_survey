@@ -1,0 +1,9 @@
+{
+   "charset": "UTF-8",
+   "reqMethod": "POST",
+   "serviceURL": "http://localhost:8080/participation/save",
+   "contentType": "application/json",
+   "requestContent": "{\n   \"surInfo\": [\n      {\n         \"end_date\": \"data_0_2\",\n         \"title\": \"data_0_0\",\n         \"start_date\": \"data_0_1\"\n      },\n      {\n         \"end_date\": \"data_1_2\",\n         \"title\": \"data_1_0\",\n         \"start_date\": \"data_1_1\"\n      }\n   ],\n   \"surOpInfo\": [\n      {\n         \"option_text\": \"data_0_2\",\n         \"chk\": \"data_0_0\",\n         \"q_num\": \"data_0_1\"\n      },\n      {\n         \"option_text\": \"data_1_2\",\n         \"chk\": \"data_1_0\",\n         \"q_num\": \"data_1_1\"\n      }\n   ],\n   \"surQInfo\": [\n      {\n         \"question_text\": \"data_0_2\",\n         \"chk\": \"data_0_0\",\n         \"q_num\": \"data_0_1\"\n      },\n      {\n         \"question_text\": \"data_1_2\",\n         \"chk\": \"data_1_0\",\n         \"q_num\": \"data_1_1\"\n      }\n   ]\n}",
+   "responseContent": "{\"rsMsg\":{\"statusCode\":\"E\", \"errorCode\" : \"E0001\", \"message\":\"Session이 종료 되었습니다.\\n\",\"status\":\"Error\"}}",
+   "sendTime": "2024-06-20 18:06:11"
+}

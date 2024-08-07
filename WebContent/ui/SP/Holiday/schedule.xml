@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+            <w2:dataCollection baseNode="map"/>
+            <w2:workflowCollection/>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+
+
+    var pFrame = com.win.getParent();
+    var start = pFrame.ipt_start.getValue();
+    var end = pFrame.ipt_end.getValue();
+    // console.log( "날짜확인", pFrame.ipt_start.getValue());
+
+    ipt_start.setValue(start);
+    ipt_end.setValue(end);
+
+    var sel = pFrame.dma_select;
+    console.log(sel);
+
+    ipt_title.setValue(sel.get("TITLE"));
+    ipt_memo.setValue(sel.get("MEMO"));
+
+};
+
+
+scwin.btn_update_onclick = function(e) {
+   // 수정될 일정을 객체로 만든다
+    var sel = {
+        "TITLE" : ipt_title.getValue(),
+        "START" : ipt_start.getValue(),
+        "END" : ipt_end.getValue(),
+        "MEMO" : ipt_memo.getValue(),
+        "themeColumn" : { "color" : sbx_color.getValue()}
+    }
+
+    var pFrame = com.win.getParent();
+    pFrame.dma_select.setJSON(sel);
+
+    var idx;
+    var arr = pFrame.dlt_schedule.getAllJSON();
+    var name = pFrame.dma_select.getJSON().ID;
+
+    // 데이터리스트에 수정될 데이터의 인덱스 값 찾기
+    for( var i=0; i<pFrame.dlt_schedule.getRowCount(); i++) {
+        if(arr[i].ID == name) {
+            console.log(arr[i].ID);
+            console.log(i, "반복횟수");
+            idx = i;
+        }
+    }
+
+    pFrame.dlt_schedule.setRowJSON(idx, sel, true);
+    pFrame.dlt_schedule.modifyRowStatus(idx, "U");
+    console.log("작업 완료");
+};
+
+scwin.btn_del_onclick = function(e) {
+     // 수정될 일정을 객체로 만든다
+    var sel = {
+        "TITLE" : ipt_title.getValue(),
+        "START" : ipt_start.getValue(),
+        "END" : ipt_end.getValue(),
+        "MEMO" : ipt_memo.getValue(),
+        "themeColumn" : { "color" : sbx_color.getValue()}
+    }
+
+    // 삭제될 데이터를 dma_select로 옮겨놓는다
+    var pFrame = com.win.getParent();
+    pFrame.dma_select.setJSON(sel);
+
+    // 데이터리스트에 수정될 데이터의 인덱스 값 찾기
+    var idx;
+    var arr = pFrame.dlt_schedule.getAllJSON();
+    var name = pFrame.dma_select.getJSON().ID;
+
+    for( var i=0; i<pFrame.dlt_schedule.getRowCount(); i++) {
+        if(arr[i].ID == name) {
+            console.log(arr[i].ID);
+            console.log(i, "반복횟수");
+            idx = i;
+        }
+    }
+
+    pFrame.dlt_schedule.deleteRow(idx);
+    pFrame.fullCal.removeschedule(name);
+
+    $p.closePopup();
+
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:textbox id="" label="일정 확인" style="font-size: 32px;font-weight: bold;"></w2:textbox>
+    		<xf:group class="w2tb" id="" style="width:100%;" tagname="table">
+    			<w2:attributes>
+    				<w2:summary></w2:summary>
+    			</w2:attributes>
+    			<xf:group tagname="caption"></xf:group>
+    			<xf:group tagname="colgroup">
+    				<xf:group style="width:15.74%;" tagname="col"></xf:group>
+    				<xf:group style="width:50.00%" tagname="col"></xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr">
+    				<xf:group class="w2tb_th" style="" tagname="th">
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    					<w2:textbox id="" label="일정명" style="display: inline-block;"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="w2tb_td" style="" tagname="td">
+    					<xf:input id="ipt_title" style="width: 144px;height: 21px;"></xf:input>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr">
+    				<xf:group class="w2tb_th" style="" tagname="th">
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    					<w2:textbox id="" label="분류" style="display: inline-block;"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="w2tb_td" style="" tagname="td">
+    					<xf:select1 allOption="" appearance="minimal" chooseOption="" direction="auto" disabled="false"
+    						disabledClass="w2selectbox_disabled" id="sbx_category" ref="" style="width: 148px;height: 21px;" submenuSize="auto">
+    						<xf:choices>
+    							<xf:item>
+    								<xf:label><![CDATA[회의]]></xf:label>
+    								<xf:value><![CDATA[01]]></xf:value>
+    							</xf:item>
+    							<xf:item>
+    								<xf:label><![CDATA[미팅]]></xf:label>
+    								<xf:value><![CDATA[02]]></xf:value>
+    							</xf:item>
+    							<xf:item>
+    								<xf:label><![CDATA[업무]]></xf:label>
+    								<xf:value><![CDATA[03]]></xf:value>
+    							</xf:item>
+    							<xf:item>
+    								<xf:label><![CDATA[할일]]></xf:label>
+    								<xf:value><![CDATA[04]]></xf:value>
+    							</xf:item>
+    						</xf:choices>
+    					</xf:select1>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group class="w2tb_th" style="" tagname="th">
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    					<w2:textbox id="" label="색상" style="display: inline-block;"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="w2tb_td" style="" tagname="td">
+    					<xf:select1 allOption="" appearance="minimal" chooseOption="" direction="auto" disabled="false"
+    						disabledClass="w2selectbox_disabled" id="sbx_color" ref="" style="width: 148px;height: 21px;" submenuSize="auto">
+    						<xf:choices>
+    							<xf:item>
+    								<xf:label><![CDATA[빨강]]></xf:label>
+    								<xf:value><![CDATA[#FF0000]]></xf:value>
+    							</xf:item>
+    							<xf:item>
+    								<xf:label><![CDATA[파랑]]></xf:label>
+    								<xf:value><![CDATA[#0000FF]]></xf:value>
+    							</xf:item>
+    							<xf:item>
+    								<xf:label><![CDATA[회색]]></xf:label>
+    								<xf:value><![CDATA[#787878]]></xf:value>
+    							</xf:item>
+    						</xf:choices>
+    					</xf:select1>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr">
+    				<xf:group class="w2tb_th" style="" tagname="th">
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    					<w2:textbox id="" label="내용" style="display: inline-block;"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="w2tb_td" style="" tagname="td">
+    					<xf:input id="ipt_memo" style="width: 144px;height: 21px;"></xf:input>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr">
+    				<xf:group class="w2tb_th" style="" tagname="th">
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    					<w2:textbox id="" label="시간" style="display: inline-block;"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="w2tb_td" style="" tagname="td">
+    					<xf:group id="" style="">
+    						<w2:textbox id="" label="시작일자" style="display:inline-block;"></w2:textbox>
+    						<w2:inputCalendar calendarValueType="yearMonthDate" id="ipt_start"
+    							style="display:inline-block;width: 150px;height: 23px;">
+    						</w2:inputCalendar>
+    					</xf:group>
+    					<xf:group id="" style="">
+    						<w2:textbox id="" label="마감일자" style="display:inline-block;"></w2:textbox>
+    						<w2:inputCalendar calendarValueType="yearMonthDate" id="ipt_end"
+    							style="width: 150px;height: 23px;display:inline-block;">
+    						</w2:inputCalendar>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:trigger id="btn_update" style="width: 80px;height: 23px;" type="button" ev:onclick="scwin.btn_update_onclick">
+    			<xf:label><![CDATA[수정]]></xf:label>
+    		</xf:trigger>
+    		<xf:trigger ev:onclick="scwin.btn_cancel_onclick" id="btn_cancel" style="width: 80px;height: 23px;" type="button">
+    			<xf:label><![CDATA[취소]]></xf:label>
+    		</xf:trigger>
+    		<xf:trigger type="button" id="btn_del" style="width: 80px;height: 23px;" ev:onclick="scwin.btn_del_onclick">
+    			<xf:label><![CDATA[삭제]]></xf:label>
+    		</xf:trigger>
+    	</xf:group>
+    </body>
+</html>

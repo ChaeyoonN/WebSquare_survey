@@ -1,0 +1,9 @@
+{
+   "charset": "UTF-8",
+   "reqMethod": "POST",
+   "serviceURL": "http://localhost:8080/participation/update",
+   "contentType": "application/json",
+   "requestContent": "{\"surDataList\": [\n   {\n      \"end_date\": \"data_0_5\",\n      \"survey_id\": \"data_0_1\",\n      \"creator\": \"data_0_6\",\n      \"updated_at\": \"data_0_8\",\n      \"chk\": \"data_0_0\",\n      \"created_at\": \"data_0_7\",\n      \"state\": \"data_0_3\",\n      \"title\": \"data_0_2\",\n      \"start_date\": \"data_0_4\"\n   },\n   {\n      \"end_date\": \"data_1_5\",\n      \"survey_id\": \"data_1_1\",\n      \"creator\": \"data_1_6\",\n      \"updated_at\": \"data_1_8\",\n      \"chk\": \"data_1_0\",\n      \"created_at\": \"data_1_7\",\n      \"state\": \"data_1_3\",\n      \"title\": \"data_1_2\",\n      \"start_date\": \"data_1_4\"\n   }\n]}",
+   "responseContent": "{\"rsMsg\":{\"statusCode\":\"E\", \"errorCode\" : \"E0001\", \"message\":\"Session이 종료 되었습니다.\\n\",\"status\":\"Error\"}}",
+   "sendTime": "2024-06-26 11:04:48"
+}

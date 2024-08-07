@@ -1,0 +1,9 @@
+{
+   "charset": "UTF-8",
+   "reqMethod": "POST",
+   "serviceURL": "http://localhost:8080/participation/saveSurveyInfo",
+   "contentType": "application/json",
+   "requestContent": "{\n   \"dlt_menu\": [\n      {\n         \"MENU_LEVEL\": \"data_0_4\",\n         \"chk\": \"data_0_0\",\n         \"PARENT_MENU_CD\": \"data_0_3\",\n         \"SORT_ORDER\": \"data_0_5\",\n         \"id\": \"data_0_1\",\n         \"MENU_NM\": \"data_0_2\"\n      },\n      {\n         \"MENU_LEVEL\": \"data_1_4\",\n         \"chk\": \"data_1_0\",\n         \"PARENT_MENU_CD\": \"data_1_3\",\n         \"SORT_ORDER\": \"data_1_5\",\n         \"id\": \"data_1_1\",\n         \"MENU_NM\": \"data_1_2\"\n      }\n   ],\n   \"surDataMap\": {\n      \"end_date\": \"SampleValue_4\",\n      \"survey_id\": \"SampleValue_0\",\n      \"creator\": \"SampleValue_2\",\n      \"updated_at\": \"SampleValue_7\",\n      \"created_at\": \"SampleValue_6\",\n      \"state\": \"SampleValue_5\",\n      \"title\": \"SampleValue_1\",\n      \"start_date\": \"SampleValue_3\"\n   }\n}",
+   "responseContent": "{\"rsMsg\":{\"statusCode\":\"E\", \"errorCode\" : \"E0001\", \"message\":\"Session이 종료 되었습니다.\\n\",\"status\":\"Error\"}}",
+   "sendTime": "2024-06-25 10:44:49"
+}

@@ -1,0 +1,9 @@
+{
+   "charset": "UTF-8",
+   "reqMethod": "POST",
+   "serviceURL": "http://localhost:8080/participation/list",
+   "contentType": "application/json",
+   "requestContent": "{\"surSearchMap\": {\n   \"condition\": \"SampleValue_0\",\n   \"keyword\": \"SampleValue_1\"\n}}",
+   "responseContent": "{\"rsMsg\":{\"statusCode\":\"E\", \"errorCode\" : \"E0001\", \"message\":\"Session이 종료 되었습니다.\\n\",\"status\":\"Error\"}}",
+   "sendTime": "2024-06-21 15:39:40"
+}

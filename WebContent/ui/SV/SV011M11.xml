@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_programId="SV011M11" meta_programDesc="항목 선택사유 보여주는 화면" meta_author="Inswave Systems" meta_date="2021.02.25" meta_programName="선택사유팝업">
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection>
+				<w2:dataList baseNode="list" repeatNode="map" id="questionList" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="question_id" name="질문아이디" dataType="text"></w2:column>
+						<w2:column id="question_text" name="질문" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="map" id="surDataList" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="survey_id" name="설문아이디"></w2:column>
+						<w2:column dataType="text" id="title" name="제목"></w2:column>
+						<w2:column dataType="text" id="state" ignoreStatus="true" name="상태"></w2:column>
+						<w2:column dataType="text" id="start_date" name="시작일"></w2:column>
+						<w2:column dataType="text" id="end_date" name="종료일"></w2:column>
+						<w2:column dataType="text" id="creator" name="작성자"></w2:column>
+						<w2:column dataType="text" id="created_at" name="등록일"></w2:column>
+						<w2:column dataType="text" id="updated_at" name="수정일"></w2:column>
+						<w2:column id="chk" name="선택" dataType="text"></w2:column>
+						<w2:column id="rowStatus" name="행상태" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="false"></w2:data>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="surDataMap">
+					<w2:keyInfo>
+						<w2:key id="survey_id" name="설문아이디" dataType="number"></w2:key>
+						<w2:key id="title" name="제목" dataType="text"></w2:key>
+						<w2:key id="creator" name="작성자" dataType="text"></w2:key>
+						<w2:key id="start_date" name="시작일" dataType="text"></w2:key>
+						<w2:key id="end_date" name="종료일" dataType="text"></w2:key>
+						<w2:key id="state" name="상태" dataType="text"></w2:key>
+						<w2:key id="created_at" name="등록일" dataType="text"></w2:key>
+						<w2:key id="updated_at" name="수정일" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="optionList" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="option_id" name="항목아이디" dataType="text"></w2:column>
+						<w2:column id="option_text" name="항목" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="surViewList" repeatNode="map" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="survey_id" name="설문아이디" dataType="text"></w2:column>
+						<w2:column id="title" name="제목" dataType="text"></w2:column>
+						<w2:column id="start_date" name="시작일" dataType="text"></w2:column>
+						<w2:column id="end_date" name="종료일" dataType="text"></w2:column>
+						<w2:column id="creator" name="작성자" dataType="text"></w2:column>
+						<w2:column id="created_at" name="등록일" dataType="text"></w2:column>
+						<w2:column id="updated_at" name="수정일" dataType="text"></w2:column>
+						<w2:column id="question_id" name="질문아이디" dataType="text"></w2:column>
+						<w2:column id="question_text" name="질문" dataType="text"></w2:column>
+						<w2:column id="option_id" name="항목아이디" dataType="text"></w2:column>
+						<w2:column id="option_text" name="항목" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" ev:oncelldatachange="" id="dlt_menu" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="chk" ignoreStatus="true" name="선택"></w2:column>
+						<w2:column dataType="text" id="id" name="코드"></w2:column>
+						<w2:column dataType="text" id="MENU_NM" name="질문"></w2:column>
+						<w2:column id="PARENT_MENU_CD" name="부모코드" dataType="text"></w2:column>
+						<w2:column dataType="number" id="MENU_LEVEL" name="메뉴레벨"></w2:column>
+						<w2:column id="SORT_ORDER" name="정렬순서" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="dlt_responseCountList" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="survey_id" name="설문아이디" dataType="text"></w2:column>
+						<w2:column id="question_id" name="질문아이디" dataType="text"></w2:column>
+						<w2:column id="option_id" name="항목아이디" dataType="text"></w2:column>
+						<w2:column id="sel_option_num" name="선택항목순번" dataType="text"></w2:column>
+						<w2:column id="option_text" name="항목" dataType="text"></w2:column>
+						<w2:column id="responseCount" name="응답수" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="dlt_reasonList" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="survey_id" name="설문아이디"></w2:column>
+						<w2:column dataType="text" id="question_id" name="질문아이디"></w2:column>
+						<w2:column dataType="text" id="option_id" name="항목아이디"></w2:column>
+						<w2:column id="sel_option_num" name="선택항목순번" dataType="text"></w2:column>
+						<w2:column dataType="text" id="reason" name="선택사유"></w2:column>
+						<w2:column dataType="text" id="user_id" name="항목"></w2:column>
+						<w2:column dataType="text" id="response_date" name="응답수"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="dlt_chartDataList" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="value" name="값" dataType="text"></w2:column>
+						<w2:column id="label" name="라벨" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="dlt_reasonPopPerOption" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="reason" name="선택사유" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<xf:submission id="sbm_getLoginMemberBasic" ref="data:json,surDataMap" target='data:json,surViewList'
+				action="/participation/view" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler=""
+				customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.searchMemberBasicCallback" ev:submiterror=""
+				abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_saveMemberInfo" ref='data:json,["surDataMap","dlt_menu"]' target=""
+				action="/participation/saveSurveyInfo" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_saveMemberInfo_submitdone"
+				ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_getResponseCount" ref="data:json,surDataMap" target="data:json,dlt_responseCountList"
+				action="/participation/getResponseCount" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_getResponseCount_submitdone"
+				ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_getReason" ref="data:json,surDataMap" target="" action="/participation/getReason" method="post"
+				mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg=""
+				ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_getParticipants" ref="" target="" action="/participation/getParticipants" method="post"
+				mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg=""
+				ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo></w2:layoutInfo>
+		<w2:publicInfo method=""></w2:publicInfo>
+
+		<script type="text/javascript" lazy="false"><![CDATA[
+/**
+ * 화면 초기화에 필요한 로직을 수행한다.
+ */
+scwin.onpageload = function () {
+	scwin.param = com.data.getParameter();
+	var r_list = scwin.param.json_list;
+    console.log(r_list);
+	/*
+	[
+        {
+            "ID": "2_1",
+            "reason": "카센터에서 차량 정기 점검 시 교체함",
+            "rowStatus": "R"
+        },
+        {
+            "ID": "2_1",
+            "reason": "집에서 가까움",
+            "rowStatus": "R"
+        },
+        {
+            "ID": "2_1",
+            "reason": "지인 소개",
+            "rowStatus": "R"
+        }
+    ]
+	*/
+	dlt_reasonPopPerOption.setJSON(r_list, false); // 기존 리스트에 추가여부 false
+    spn_memberCnt.setValue(dlt_reasonPopPerOption.getTotalRow()); // 목록 건수 출력
+	
+	for (var i = 0; i < r_list.length; i++){ // 선택사유 갯수만큼 반복
+		var gen2Idx =generator2.insertChild(i); // 반복부 추가 (인자 안쓰면 0)
+
+		var gen2Obj_tbx = generator2.getChild( gen2Idx , "tbx_r" );
+		gen2Obj_tbx.setValue(r_list[i].reason);
+		gen2Obj_tbx.setStyle("margin-bottom", "5px"); 
+	}
+
+	if (com.win.isAdmin() == false) {
+		
+	}
+
+	
+};
+
+/**
+ * 화면 초기화 데이터가 모두 로딩되면 발생하는 이벤트
+ */
+scwin.ondataload = function () {
+	
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group style="" id="" class="pop_contents">
+			<xf:group class="dfbox" id="" style="">
+				<w2:textbox class="" id="" label="선택사유" style="" tagname="h3"></w2:textbox>
+				<xf:group class="fr" id="" style="">
+				</xf:group>
+			</xf:group>
+			<xf:group id="" class="tabbox">
+				<w2:tabControl adaptiveThreshold="900" useTabKeyOnly="true" useMoveNextTabFocus="false" closable="false"
+					useConfirmMessage="false" selectedIndex="0" adaptive="layout" confirmTrueAction="exist" confirmFalseAction="new" alwaysDraw="false"
+					style="" id="tac_memberInfo" class="wq_tab">
+					<w2:tabs disabled="false" style="" id="tab_memberDetail" label="선택사유"></w2:tabs>
+					<w2:content scope="true" alwaysDraw="false" frameMode="wframePreload" id="content1"></w2:content>
+				</w2:tabControl>
+				<xf:group class="dfbox" id="" style="">
+					<w2:textbox class="" id="tbx_h3" label="" style="" tagname="h3" escape="false"></w2:textbox>
+					<xf:group class="fr" id="" style="">
+						<w2:textbox class="" id="" label="답변" style=""></w2:textbox><w2:textbox class="sum" id="spn_memberCnt" label="" style=""></w2:textbox>
+						<w2:textbox class="" id="" label="건" style=""></w2:textbox>
+						
+					</xf:group>
+				</xf:group>
+				<xf:group adaptiveThreshold="" class="gvwbox wq_flx" id="grp_list" style="">
+					<w2:gridView autoFit="allColumn" autoFitMinWidth="900" checkReadOnlyOnPasteEnable="" class="wq_gvw" columnMove="true"
+						dataList="data:dlt_reasonPopPerOption" defaultCellHeight="26" drawType="virtual" editModeEvent="onclick" escape="true" fixedColumn="1"
+						focusFlow="linear" focusMode="row" id="grd_reason" keyMoveEditMode="true" readOnly="true" rowNumHeaderValue="순번" rowNumVisible="true"
+						rowStatusHeaderValue="상태" rowStatusVisible="false" scrollByColumn="false" scrollByColumnAdaptive="false" sortEvent="ondblclick"
+						sortable="true" style="" useFilterList="true">
+						<w2:caption id="caption7" style="" value="this is a grid caption."></w2:caption>
+						<w2:header id="header7" style="">
+							<w2:row id="row13" style="">
+								<w2:column width="200" inputType="text" style="" id="header_reason" value="선택사유" displayMode="label"></w2:column>
+							</w2:row>
+						</w2:header>
+						<w2:gBody id="gBody7" style="">
+							<w2:row id="row14" style="">
+								<w2:column width="200" disabled="true" inputType="text" readOnly="true" style="" id="reason" value=""
+									displayMode="label">
+								</w2:column>
+							</w2:row>
+						</w2:gBody>
+					</w2:gridView>
+				</xf:group>
+				<w2:generator style="width: 100%;height: 100px;" id="generator2">
+					<w2:textbox id="tbx_r" label="" style="width: 90%;height: 23px;line-height: 23px;"></w2:textbox>
+				</w2:generator>
+			</xf:group>
+
+		</xf:group>
+		
+
+
+	</body>
+</html>

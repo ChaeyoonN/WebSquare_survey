@@ -1,0 +1,1280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_programId="SV003M03" meta_programName="설문 참여" meta_programDesc="설문 참여하는 화면" meta_author="Inswave Systems" meta_date="2024.06.18">
+		<w2:type palette="">COMPONENT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="dma_search">
+					<w2:keyInfo>
+						<w2:key id="TYPE" name="name1" dataType="text"></w2:key>
+						<w2:key id="CONTENT" name="name2" dataType="text"></w2:key>
+						<w2:key id="IS_USE" name="name3" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList id="dlt_memberBasic" baseNode="list" saveRemovedData="true" repeatNode="map">
+					<w2:columnInfo>
+						<w2:column id="chk" name="선택" dataType="text" ignoreStatus="true"></w2:column>
+						<w2:column id="EMP_CD" name="사원코드" dataType="text"></w2:column>
+						<w2:column id="EMP_NM" name="사원명" dataType="text"></w2:column>
+						<w2:column id="EMP_CN_NM" name="사원한자명" dataType="text"></w2:column>
+						<w2:column id="EMP_EN_NM" name="사원영문명" dataType="text"></w2:column>
+						<w2:column id="RESIDENT_NO" name="주민번호" dataType="text"></w2:column>
+						<w2:column id="JOIN_DATE" name="입사일" dataType="text"></w2:column>
+						<w2:column id="JOIN_CLASS_CD" name="입사구분" dataType="text"></w2:column>
+						<w2:column id="POSITION_CD" name="직위코드" dataType="text"></w2:column>
+						<w2:column id="DUTY_CD" name="직책" dataType="text"></w2:column>
+						<w2:column id="LAST_APPOINT_DATE" name="최종발령일" dataType="text"></w2:column>
+						<w2:column id="POSITION_UPDATED_DATE" name="호칭변경일" dataType="text"></w2:column>
+						<w2:column id="ORG_CD" name="소속" dataType="text"></w2:column>
+						<w2:column id="JOB_FAMILY_CD" name="직군" dataType="text"></w2:column>
+						<w2:column id="JOB_CD" name="직무" dataType="text"></w2:column>
+						<w2:column id="ASSIGNED_TASK" name="담당업무" dataType="text"></w2:column>
+						<w2:column id="OFFICE_PHONE1" name="사내직통전화1" dataType="text"></w2:column>
+						<w2:column id="OFFICE_PHONE2" name="사내직통전화2" dataType="text"></w2:column>
+						<w2:column id="OFFICE_PHONE3" name="사내직통전화3" dataType="text"></w2:column>
+						<w2:column id="HOME_PHONE1" name="자택전화1" dataType="text"></w2:column>
+						<w2:column id="HOME_PHONE2" name="자택전화2" dataType="text"></w2:column>
+						<w2:column id="HOME_PHONE3" name="자택전화3" dataType="text"></w2:column>
+						<w2:column id="CELL_PHONE1" name="휴대폰1" dataType="text"></w2:column>
+						<w2:column id="CELL_PHONE2" name="휴대폰2" dataType="text"></w2:column>
+						<w2:column id="CELL_PHONE3" name="휴대폰3" dataType="text"></w2:column>
+						<w2:column id="EMAIL" name="이메일" dataType="text"></w2:column>
+						<w2:column id="RELIGION_CD" name="종교" dataType="text"></w2:column>
+						<w2:column id="LAST_SCHOOL_NM" name="최종학교" dataType="text"></w2:column>
+						<w2:column id="MAJOR_NM" name="전공" dataType="text"></w2:column>
+						<w2:column id="SCHOOL_CAREER_CD" name="입사학력" dataType="text"></w2:column>
+						<w2:column id="HOUSE_KIND_CD" name="주거형태" dataType="text"></w2:column>
+						<w2:column id="ZIP_CD" name="우편번호" dataType="text"></w2:column>
+						<w2:column id="ADDRESS1" name="주소1" dataType="text"></w2:column>
+						<w2:column id="ADDRESS2" name="주소2" dataType="text"></w2:column>
+						<w2:column id="IS_VETERAN_WELFARE" name="보훈여부" dataType="text"></w2:column>
+						<w2:column id="IS_MILITARY_SERVICE" name="군필여부" dataType="text"></w2:column>
+						<w2:column id="BIRTH_DATE" name="생년월일" dataType="text"></w2:column>
+						<w2:column id="IS_LUNAR" name="음력구분" dataType="text"></w2:column>
+						<w2:column id="IS_MARRIAGE" name="결혼여부" dataType="text"></w2:column>
+						<w2:column id="HOPPY" name="취미" dataType="text"></w2:column>
+						<w2:column id="TALENT" name="특기" dataType="text"></w2:column>
+						<w2:column id="RETIRE_REASON" name="휴퇴직사유" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList id="dlt_memberSearchItem" baseNode="list" saveRemovedData="true" repeatNode="map">
+					<w2:columnInfo>
+						<w2:column id="EMP_CD" name="name1" dataType="text"></w2:column>
+						<w2:column id="EMP_NM" name="name2" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="surDataList" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="survey_id" name="설문아이디" dataType="number"></w2:column>
+						<w2:column id="title" name="제목" dataType="text"></w2:column>
+						<w2:column id="state" name="완료여부" dataType="text" ignoreStatus="true"></w2:column>
+						<w2:column id="start_date" name="시작일" dataType="text"></w2:column>
+						<w2:column id="end_date" name="종료일" dataType="text"></w2:column>
+
+						<w2:column id="creator" name="작성자" dataType="text"></w2:column>
+						<w2:column id="created_at" name="등록일" dataType="text"></w2:column>
+						<w2:column id="updated_at" name="수정일" dataType="text"></w2:column>
+
+						<w2:column id="participateTF" name="참여여부" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="false"></w2:data>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="surSearchMap">
+					<w2:keyInfo>
+						<w2:key id="condition" name="타입" dataType="text"></w2:key>
+						<w2:key id="keyword" name="키워드" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataMap baseNode="map" id="stateMap">
+					<w2:keyInfo>
+						<w2:key id="1" name="진행예정" dataType="text"></w2:key>
+						<w2:key id="2" name="진행중" dataType="text"></w2:key>
+						<w2:key id="3" name="완료" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="surInfo" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="survey_id" name="설문아이디" dataType="text"></w2:column>
+						<w2:column id="title" name="제목" dataType="text"></w2:column>
+						<w2:column id="start_date" name="시작일" dataType="text"></w2:column>
+						<w2:column id="end_date" name="종료일" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="surQInfo" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="chk" name="선택" dataType="text" ignoreStatus="true"></w2:column>
+						<w2:column id="q_num" name="문제번호" dataType="text"></w2:column>
+						<w2:column id="question_text" name="문제" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="surOpInfo" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="chk" name="선택" dataType="text" ignoreStatus="true"></w2:column>
+						<w2:column id="q_num" name="문제번호" dataType="text"></w2:column>
+						<w2:column id="option_text" name="항목" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="userInfo">
+					<w2:keyInfo>
+						<w2:key id="EMP_CD" name="유저아이디" dataType="text"></w2:key>
+					</w2:keyInfo>
+					<w2:data use="true">
+						<EMP_CD><![CDATA[ ]]></EMP_CD>
+					</w2:data>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="surDetail" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="survey_id" name="name1" dataType="text"></w2:column>
+						<w2:column id="start_date" name="name4" dataType="text"></w2:column>
+						<w2:column id="end_date" name="name3" dataType="text"></w2:column>
+						<w2:column id="creator" name="name4" dataType="text"></w2:column>
+						<w2:column id="created_at" name="name5" dataType="text"></w2:column>
+						<w2:column id="updated_at" name="name6" dataType="text"></w2:column>
+						<w2:column id="question_id" name="name7" dataType="text"></w2:column>
+						<w2:column id="question_text" name="name8" dataType="text"></w2:column>
+						<w2:column id="option_id" name="name9" dataType="text"></w2:column>
+						<w2:column id="option_text" name="name10" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="surveyIdMap">
+					<w2:keyInfo>
+						<w2:key id="survey_id" name="설문아이디" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataMap baseNode="map" id="surDetailInfo">
+					<w2:keyInfo>
+						<w2:key id="survey_id" name="설문아이디" dataType="text"></w2:key>
+						<w2:key id="title" name="제목" dataType="text"></w2:key>
+						<w2:key id="start_date" name="시작일" dataType="text"></w2:key>
+						<w2:key id="end_date" name="종료일" dataType="text"></w2:key>
+						<w2:key id="creator" name="작성자" dataType="text"></w2:key>
+						<w2:key id="created_at" name="등록일" dataType="text"></w2:key>
+						<w2:key id="updated_at" name="수정일" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataMap baseNode="map" id="surDataMap" style="">
+					<w2:keyInfo>
+						<w2:key dataType="number" id="survey_id" name="설문아이디"></w2:key>
+						<w2:key dataType="text" id="title" name="제목"></w2:key>
+						<w2:key dataType="text" id="creator" name="작성자"></w2:key>
+						<w2:key dataType="text" id="start_date" name="시작일"></w2:key>
+						<w2:key dataType="text" id="end_date" name="종료일"></w2:key>
+						<w2:key dataType="text" id="state" name="상태"></w2:key>
+						<w2:key dataType="text" id="created_at" name="등록일"></w2:key>
+						<w2:key dataType="text" id="updated_at" name="수정일"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" id="surViewList" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="survey_id" name="설문아이디"></w2:column>
+						<w2:column dataType="text" id="title" name="제목"></w2:column>
+						<w2:column dataType="text" id="start_date" name="시작일"></w2:column>
+						<w2:column dataType="text" id="end_date" name="종료일"></w2:column>
+						<w2:column dataType="text" id="creator" name="작성자"></w2:column>
+						<w2:column dataType="text" id="created_at" name="등록일"></w2:column>
+						<w2:column dataType="text" id="updated_at" name="수정일"></w2:column>
+						<w2:column dataType="text" id="question_id" name="질문아이디"></w2:column>
+						<w2:column dataType="text" id="question_text" name="질문"></w2:column>
+						<w2:column dataType="text" id="option_id" name="항목아이디"></w2:column>
+						<w2:column dataType="text" id="option_text" name="항목"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="dlt_QList" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="id" name="아이디" dataType="text"></w2:column>
+						<w2:column id="q_num" name="문제번호" dataType="text"></w2:column>
+						<w2:column id="question_text" name="질문" dataType="text"></w2:column>
+						<w2:column id="PARENT_MENU_CD" name="부모아이디" dataType="text"></w2:column>
+						<w2:column id="MENU_NM" name="질문명" dataType="text"></w2:column>
+						<w2:column id="MENU_LEVEL" name="레벨" dataType="text"></w2:column>
+						<w2:column id="SORT_ORDER" name="정렬순서" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="dlt_opList" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="id" name="아이디"></w2:column>
+						<w2:column dataType="text" id="q_num" name="문제번호"></w2:column>
+						<w2:column dataType="text" id="option_text" name="항목"></w2:column>
+						<w2:column dataType="text" id="PARENT_MENU_CD" name="부모아이디"></w2:column>
+						<w2:column dataType="text" id="MENU_NM" name="항목명"></w2:column>
+						<w2:column dataType="text" id="MENU_LEVEL" name="레벨"></w2:column>
+						<w2:column dataType="text" id="SORT_ORDER" name="정렬순서"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="dlt_participateList" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="question_id" name="질문아이디" dataType="text"></w2:column>
+						<w2:column id="sel_option_num" name="선택항목순번" dataType="text"></w2:column>
+
+						<w2:column id="option_id" name="항목아이디" dataType="text"></w2:column>
+						<w2:column id="reason" name="선택사유" dataType="text"></w2:column>
+						<w2:column id="option_text" name="항목" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="map" id="dlt_surDataList_paging" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="no" ignoreStatus="true" name="순번"></w2:column>
+						<w2:column id="participateTF" name="참여여부" dataType="text"></w2:column>
+						<w2:column dataType="text" id="title" name="제목"></w2:column>
+						<w2:column dataType="text" id="state" ignoreStatus="true" name="완료여부"></w2:column>
+						<w2:column dataType="text" id="start_date" name="시작일"></w2:column>
+						<w2:column dataType="text" id="end_date" name="종료일"></w2:column>
+						<w2:column dataType="text" id="creator" name="작성자"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="false"></w2:data>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="dlt_participateWriteList" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="question_id" name="질문아이디"></w2:column>
+						<w2:column dataType="text" id="sel_option_num" name="선택항목순번"></w2:column>
+						<w2:column dataType="text" id="option_id" name="항목아이디"></w2:column>
+						<w2:column dataType="text" id="reason" name="선택사유"></w2:column>
+						<w2:column dataType="text" id="option_text" name="항목"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection></w2:workflowCollection>
+			<xf:submission id="sbm_searchMemberBasic" ref='data:json,["surSearchMap","userInfo"]' target='data:json,surDataList'
+				action="/participation/list_participate" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_searchMemberBasic_submitdone"
+				ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_saveSurveyResult" ref='data:json,["surDataMap","dlt_participateList","userInfo"]'
+				target='data:json,surDataList' action="/participation/participate" method="post" mediatype="application/json" encoding="UTF-8"
+				instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="저장중 입니다..." ev:submit=""
+				ev:submitdone="scwin.sbm_saveSurveyResult_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_memberSearchItem" ref="" target="data:json,dlt_memberSearchItem" action="/member/selectMemberSearchItem"
+				method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+				processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="">
+			</xf:submission>
+			<xf:submission id="sbm_searchMemberBasicOrganization" ref="" target="data:json,dlt_memberOrganization"
+				action="/member/searchMemberBasicOrganization" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="">
+			</xf:submission>
+			<xf:submission id="sbm_userInfo" ref="" target="data:json,userInfo" action="/participation/user" method="post"
+				mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg=""
+				ev:submit="" ev:submitdone="scwin.sbm_userInfo_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_saveQuestion" ref="data:json,surQInfo" target="data:json,surDataList" action="/participation/saveQ"
+				method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+				processMsg="저장중 입니다..." ev:submit="" ev:submitdone="scwin.sbm_saveMemberBasic_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_saveOption" ref="data:json,surOpInfo" target="" action="/participation/save" method="post"
+				mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+				processMsg="저장중 입니다..." ev:submit="" ev:submitdone="scwin.sbm_saveMemberBasic_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_viewDetail" ref="data:json,surveyIdMap" target='data:json,["surDetailInfo","surQInfo","surOpInfo"]'
+				action="/participation/view" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler=""
+				customHandler="" mode="asynchronous" processMsg="상세조회중입니다..." ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_updateSurvey" ref="data:json,surDataList" target="data:json,surDataList" action="/participation/update"
+				method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+				processMsg="저장중입니다..." ev:submit="" ev:submitdone="scwin.sbm_saveMemberBasic_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_getQuestionsAndOptions" ref="data:json,surDataMap" target="data:json,surViewList"
+				action="/participation/view" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler=""
+				customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.getQuestionsAndOptionsCallback" ev:submiterror=""
+				abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_getParticipateOrNot" ref='data:json,["surDataMap","userInfo"]' target="data:json,dlt_participateWriteList"
+				action="/participation/getParticipateOrNot" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_getParticipateOrNotCallback"
+				ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_getResponse" ref='data:json,["surDataMap","userInfo"]' target="data:json,dlt_participateList"
+				action="/participation/getResponse" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler=""
+				customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo></w2:layoutInfo>
+		<w2:publicInfo method=""></w2:publicInfo>
+
+		<script type="text/javascript" lazy="false"><![CDATA[
+/**
+ * 초기화 함수(셀렉트 박스의 항목을 가져온다)
+ */
+scwin.onpageload = function () {
+	/* var codeOptions = [{ code: "00001", compID: "sbx_Duty" },
+	{ code: "00002", compID: "sbx_Postion, grd_memberBasic:POSITION_CD" },
+	{ code: "00021", compID: "sbx_JoinClass" },
+	{ code: "00023", compID: "sbx_JobFamily" },
+	{ code: "00024", compID: "sbx_Job" }];
+	
+	com.data.setCommonCode(codeOptions);
+
+	com.sbm.execute(sbm_memberSearchItem);
+	com.sbm.execute(sbm_searchMemberBasicOrganization);
+	com.win.setEnterKeyEvent(tbl_search, scwin.btn_search_onclick);
+	com.util.setGridViewDelCheckBox(grd_memberBasic);
+	com.data.setChangeCheckedDc(dlt_memberBasic); */
+	// 초기화 및 서치
+	grd_memberBasic.setColumnBackgroundColor(0, "#D9E6F3"); // 순번 내림차순 배경색 설정
+};
+
+scwin.quMap = {}; // questionMap 저장 위한 변수
+scwin.gridRowCount = 10; // 목록에서 한번에 보여줄 행수 설정
+scwin.currentPage = 1; // 현재 페이지를 저장할 변수
+scwin.participatedIdxArr;
+
+/**
+ * 화면 초기화 데이터가 모두 로딩되면 발생하는 이벤트
+ */
+scwin.ondataload = function () {
+	//scwin.btn_search_onclick(); // 조회
+	com.sbm.execute(sbm_userInfo); // 등록시 현재 로그인한 유저아이디 세팅
+//	q_cnt.setValue(surQInfo.getTotalRow()); // 로딩시 
+
+};
+/**
+ * sbm_userInfo 후 처리
+ */
+scwin.sbm_userInfo_submitdone = function(e) {
+	if (com.sbm.getResultCode(e) == gcm.MESSAGE_CODE.STATUS_SUCCESS) {
+		scwin.btn_search_onclick(); // 조회
+	}
+};
+
+/**
+ * 조회 버튼 클릭시 발생하며, 조건에 따른 인사기본정보 리스트를 조회한다.
+ */
+scwin.btn_search_onclick = function () {
+	/* if ((sbx_choiceBox.getValue() == "EMP_CD") || (sbx_choiceBox.getValue() == "EMP_NM")) {
+		dma_search.set("CONTENT", acb_autoChoiceBox.getValue());
+	} else if ((sbx_choiceBox.getValue() == "POSITION_CD") || (sbx_choiceBox.getValue() == "ORG_CD")) {
+		dma_search.set("CONTENT", sbx_positionCd.getValue());
+	} */
+	
+	com.sbm.execute(sbm_searchMemberBasic); // url : /participation/list_participate
+};
+
+scwin.findCommonSurveyIndices = function (array1, array2) {
+  const commonIndices = [];
+
+  array1.forEach((item1, index1) => {
+    const existsInArray2 = array2.some(item2 => item2.survey_id === item1.survey_id);
+    if (existsInArray2) {
+      commonIndices.push(index1); // survey_id 같은 객체의 arr1에서의 인덱스
+    }
+  });
+
+  return commonIndices;
+}
+
+/**
+ * 조회 버튼 클릭의 콜백 메소드 (후처리함수)
+ * 건수 조회, ReadOnly 그리드뷰 컬럼색 변경. ReadOnly속성을 설정한다. 
+ */
+scwin.sbm_searchMemberBasic_submitdone = function (e) {
+	if (com.sbm.getResultCode(e) == gcm.MESSAGE_CODE.STATUS_SUCCESS) {
+		spn_memberCnt.setValue(surDataList.getRowCount());
+		var data = e.responseJSON;
+		console.log("data!!!!!: ", data)
+		var participatedSurDataList = data.participatedSurDataList;
+
+		// paging
+		var totrowcnt = surDataList.getRowCount();
+		scwin.setPageListCount(totrowcnt);
+		dlt_surDataList_paging.setJSON(surDataList.getRangeJSON(0, scwin.gridRowCount-1));
+		scwin.setNo(totrowcnt);
+		// 참여여부 
+		scwin.participatedIdxArr = scwin.findCommonSurveyIndices(data.surDataList, participatedSurDataList);
+		console.log("RESULT: ",scwin.participatedIdxArr);
+		// 공통된 인덱스들에 해당하는 행에 서식을 적용한다
+/**/ 		for (var i = 0; i < scwin.participatedIdxArr.length; i++) {
+			// 현재 페이지에 해당하는 인덱스만 서식 적용
+			if (scwin.participatedIdxArr[i]  >= (scwin.currentPage - 1) * scwin.gridRowCount 
+				&& scwin.participatedIdxArr[i]  < scwin.currentPage * scwin.gridRowCount) {
+			// 실제 인덱스를 그리드의 인덱스로 변환
+			var gridIndex = scwin.participatedIdxArr[i] % scwin.gridRowCount;
+			console.log("Actual Row: ", scwin.participatedIdxArr[i], "Grid Index: ", gridIndex);
+			
+			// 그리드의 해당 행에 서식 적용
+			grd_memberBasic.setRowBackgroundColor(gridIndex, "#E8E9E8");
+			}
+		} 
+
+		// 완료여부 세팅
+		// 데이터를 그리드뷰에 바인딩
+        //grd_memberBasic.bind(surDataList);
+        // 현재 날짜 가져오기
+        var today = new Date();
+        // 그리드뷰의 각 행에 대해 처리
+        for (var i = 0; i < surDataList.getTotalRow(); i++) {
+            
+			if (scwin.participatedIdxArr.includes(i)) {
+                // 참여여부 세팅
+                surDataList.setCellData(i, "participateTF", "참여완료");
+                dlt_surDataList_paging.setCellData(i, "participateTF", "참여완료");
+            } else {
+                // 공통된 인덱스가 아닐 경우 다른 값을 세팅
+                surDataList.setCellData(i, "participateTF", "미참여");
+                dlt_surDataList_paging.setCellData(i, "participateTF", "미참여");
+            }
+            
+			var startDate = new Date(surDataList.getCellData(i, "start_date"));
+            var endDate = new Date(surDataList.getCellData(i, "end_date"));
+			var todayFormat = today.getFullYear() + '-' + 
+				String(today.getMonth() + 1).padStart(2, '0') + '-' + 
+				String(today.getDate()).padStart(2, '0');
+
+            // 현재 날짜와 시작일, 종료일을 비교하여 상태 설정
+			if (todayFormat >= surDataList.getCellData(i, "start_date") && todayFormat <= surDataList.getCellData(i, "end_date")) {
+				surDataList.setCellData(i, "state", "진행중");
+				dlt_surDataList_paging.setCellData(i, "state", "진행중");
+			}
+			else if (today.getTime() >= startDate.getTime() && today.getTime() <= endDate.getTime()) {
+				surDataList.setCellData(i, "state", "진행중");
+				dlt_surDataList_paging.setCellData(i, "state", "진행중");
+			} else if(todayFormat > surDataList.getCellData(i, "end_date")) {
+				surDataList.setCellData(i, "state", "완료");
+				dlt_surDataList_paging.setCellData(i, "state", "완료");			
+			}
+			else if (today.getTime() > endDate.getTime()) {
+				surDataList.setCellData(i, "state", "완료");
+				dlt_surDataList_paging.setCellData(i, "state", "완료");
+			} else {
+				surDataList.setCellData(i, "state", "진행예정");
+				dlt_surDataList_paging.setCellData(i, "state", "진행예정");
+			}
+		} 
+		grd_memberBasic.setFocusedCell(0, "title"); // onrowindexexchange 이벤트 발생
+	}
+};
+
+/**
+ * 페이지리스트 컴포넌트의 전체 페이지수 세팅
+ */
+scwin.setPageListCount = function(totrowcnt) {
+	var cnt = Number(totrowcnt) / scwin.gridRowCount;
+	cnt = Math.ceil(cnt);
+	
+	pageList3.setCount(cnt);
+}
+/**
+ * 목록 그리드뷰의 no 컬럼 값 세팅
+ */
+scwin.setNo = function(startNo){
+	var len = scwin.gridRowCount;
+	for(var ix = 0; ix < len; ix++){
+		dlt_surDataList_paging.setCellData(ix, "no", startNo--);
+	}
+}
+/**
+ * 페이지리스트 컴포넌트의 숫자 누르면 실행되는 함수
+ */
+scwin.pageList3_onchange = function(current,before){
+	console.log("pageList3_onchange, current = " + current + ", before = " + before);
+	console.log("scwin.participatedIdxArr = " + scwin.participatedIdxArr);
+	scwin.currentPage = current; // 현재 페이지 저장
+
+	var start ;
+	var end;
+	var getJson;
+	
+	start = (current-1)*scwin.gridRowCount;
+	end = start+scwin.gridRowCount-1;
+	getJson = surDataList.getRangeJSON(start, end);
+	dlt_surDataList_paging.setJSON(getJson);
+
+	// 내림차순으로 no 설정
+    var totalRows = surDataList.getRowCount();
+    var startNo = totalRows - start;
+	scwin.setNo(startNo);
+
+	// 공통된 인덱스들(설문 참여한 행)에 해당하는 행에 서식을 적용한다
+	for (var i = 0; i < scwin.participatedIdxArr.length; i++) {
+		// 실제 인덱스 계산
+		
+		// 현재 페이지에 해당하는 인덱스만 서식 적용
+		if (scwin.participatedIdxArr[i]  >= (scwin.currentPage - 1) * scwin.gridRowCount 
+			&& scwin.participatedIdxArr[i]  < scwin.currentPage * scwin.gridRowCount) {
+		// 실제 인덱스를 그리드의 인덱스로 변환
+		var gridIndex = scwin.participatedIdxArr[i] % scwin.gridRowCount;
+		console.log("Actual Row: ", scwin.participatedIdxArr[i], "Grid Index: ", gridIndex);
+		
+		// 그리드의 해당 행에 서식 적용
+		grd_memberBasic.setRowBackgroundColor(gridIndex, "#E8E9E8");
+		}
+	}
+};
+
+/**
+ * 설문 항목 라디오 선택 시 함수
+ */
+scwin.rad_option_text1_onviewchange = function(info) {
+	// dlt_participateList에 응답 데이터 바인딩하기
+	var idx = this.getGeneratedIndex(); // 몇번째 질문에 대한 항목인지 인덱스
+
+	var itemIndex = info.index;         // item의 index
+    var itemValue = info.value;         // item의 value : sel_option_num
+	var compValue = this.getValue();    // 컴포넌트의 value
+	//  idx번째 질문의 itemIndex번째 항목
+	var question_id = dlt_QList.getCellData(idx, "id");
+	var option_id = Object.values(scwin.quMap)[idx].children[itemIndex].id;
+	var reasonComponent = generator2.getChild(idx, "ipt_choiceReason1");
+	var reason = reasonComponent.getValue();
+	/* var jsonData = [
+					{
+						"question_id": 2,
+						"sel_option_num": 2,
+						"option_id": 2,
+						"reason":2
+					}
+				]; */
+
+	// dlt_participateList에 새롭게 넣을 question_id와 같은 데이터가 있는지 확인 : 있으면 지우고 데이터 넣는다.
+	var existingRows = dlt_participateList.getMatchedJSON("question_id", question_id, true, 0, dlt_participateList.getTotalRow());
+	console.log(existingRows); // json list
+	if (existingRows.length > 0) {
+		var indexArr = dlt_participateList.getMatchedIndex("question_id", question_id, true, 0, dlt_participateList.getTotalRow());
+		for (var i = 0; i < indexArr.length; i++){
+			dlt_participateList.removeRow(indexArr[i]);
+		}
+	}
+	dlt_participateList.setRowData(
+									idx, 
+									[question_id,itemValue,option_id,reason], 
+									false
+								); // false로 해야 들어감!
+	// true면 기존 인덱스 존재해야 덮어씀, false면 새로운 행 생성해 넣음.
+
+	//console.log(dlt_participateList); // 라디오 선택 후 적는 선택사유는 못가져오는 문제 있음
+};
+
+scwin.ipt_choiceReason1_onchange = function(info) { //선택사유 바인딩
+	/* if(info.newValue.length >= 50) {
+		alert("50자까지만 적을 수 있어요.");
+	} */
+	var inputValue = info.newValue;
+	console.log(inputValue);
+
+	var idx = this.getGeneratedIndex(); // 몇번째 질문에 대한 항목인지 인덱스
+	var reasonComponent = generator2.getChild(idx, "ipt_choiceReason1");
+
+	if(inputValue.trim().length < 1) {
+		//alert("공백이 아닌 내용을 적어주세요.");
+		reasonComponent.setValue("");
+	} 
+
+	var reason = reasonComponent.getValue();
+	dlt_participateList.setCellData(idx, "reason", reason.trim()); // 양옆 공백 제거후 저장
+};
+
+/**
+ * 설문 응답 후 제출 버튼 클릭한다.
+ */
+scwin.btn_regist_onclick = function () {
+	if(surDataMap.get("state") !== "진행중") { // 진행중에만 설문 참여 가능
+		alert("진행중인 설문이 아닙니다.\n진행중인 설문에만 참여할 수 있습니다.");
+		return; // 함수 탈출
+	}	
+	// Radio 'rad_option_text1'의 체크 여부를 검증.
+	if(dlt_participateList.getTotalRow() < dlt_QList.getTotalRow()) {
+		alert("모든 질문에 대해 응답해 주세요.");
+		return; // 함수 탈출
+	}
+	
+	// 설문 응답 데이터 저장 요청
+	com.win.confirm(com.data.getMessage("MSG_CM_00103"), function (res) { // 제출 수정불가 및 제출 확답 알림
+		if (res.clickValue === true) {
+			com.sbm.execute(sbm_saveSurveyResult);
+		}
+	});
+};
+
+/**
+ * 설문목록 그리드뷰 행 클릭(로드시 첫번째행)했을 때, 각 설문코드에 맞는 정보가 호출된다.
+ */
+scwin.grd_memberBasic_onrowindexchange = function (row, oldRow) {
+	
+/* 	console.log(dlt_surDataList_paging.getCellData(row, "participateTF"));
+	if(dlt_surDataList_paging.getCellData(row, "participateTF") === "참여완료") {
+
+	} */
+	
+	dlt_participateList.removeAll(); // 데이터리스트 비워주기
+	
+    // 실제 인덱스 계산
+    var actualRow = (scwin.currentPage - 1) * scwin.gridRowCount + row;
+    var rowData = surDataList.getRowJSON(actualRow);
+	console.log(rowData);
+	
+	// 해당 row의 dataForSurDataMap 보내어 해당 row의 질문과 항목 데이터 요청
+	var dataForSurDataMap = {
+		"survey_id": rowData.survey_id,
+		"title":rowData.title, 
+		"creator":rowData.creator, 
+		"start_date":rowData.start_date, 
+		"end_date":rowData.end_date, 
+		"state": rowData.state, 
+		"created_at":rowData.created_at,
+		"updated_at":rowData.updated_at
+	};
+	surDataMap.setJSON(dataForSurDataMap, false);
+	com.sbm.execute(sbm_getQuestionsAndOptions); // 해당 row의 질문과 항목 데이터 요청
+	com.sbm.execute(sbm_getParticipateOrNot); // 해당 설문 참여여부 조회 요청 : 참여여부 및 참여한 경우 응답내용까지 조회
+
+	// 해당 row의 설문 마스터 데이터 세팅
+	var jsonData = [
+					{
+						"title": rowData.title,
+						"start_date": rowData.start_date,
+						"end_date": rowData.end_date,
+					}
+				];
+	surInfo.setJSON(jsonData, false);
+};
+
+/**
+ * 설문 문제와 항목 정보를 조회 후 후처리 함수
+ */
+scwin.getQuestionsAndOptionsCallback = function (resBody) {
+    var data = resBody.responseJSON.surViewList;
+	/********* 질문 ***********/
+    // 중복 없이 질문 아이디 순으로 질문 얻기
+	var questions = {};
+	data.forEach(function(item) {
+		if (!questions[item.question_id]) {
+			questions[item.question_id] = {
+				id: item.question_id,
+				question_text: item.question_text,
+				MENU_NM: item.question_text,
+				PARENT_MENU_CD: item.question_id,
+				MENU_LEVEL: 1,
+				SORT_ORDER: 0,
+			};
+		}
+	});
+	var questionList = Object.values(questions);
+	questionList.sort(function(a, b) {a.id - b.id}); // id 오름차순으로 정렬
+
+	// question_id 별로 질문번호 매기기
+	var questionMap = {};
+	questionList.forEach(function(item, idx) {
+		questionMap[item.id] = {
+			id: item.id,
+			q_num: idx + 1, // 질문 번호 추가
+			question_text: item.question_text,
+			MENU_NM: item.question_text,
+			PARENT_MENU_CD: item.id,
+			MENU_LEVEL: 1,
+			SORT_ORDER: 0,
+			children: []
+		};
+	});
+	console.log("questionMapLIST: ", Object.values(questionMap));
+	surQInfo.setJSON(Object.values(questionMap), false);
+	dlt_QList.setJSON(Object.values(questionMap), false);
+	scwin.quMap = questionMap;
+	/********* 항목 ***********/
+    // 중복없이 질문 및 항목 아이디 순으로 얻기
+    var items = {};
+    data.forEach(function(item) {
+        if (!items[item.option_id]) {
+            items[item.option_id] = {
+                id: item.option_id,
+                option_text: item.option_text,
+                MENU_NM: item.option_text,
+                PARENT_MENU_CD: item.question_id,
+                MENU_LEVEL: 2,
+                SORT_ORDER: Object.keys(items).length + 1
+            };
+            questionMap[item.question_id].children.push(items[item.option_id]);
+        }
+    });
+
+    // 정렬 함수
+    function sortItems(items) {
+        return items.sort(function(a, b) {
+            if (a.MENU_LEVEL === 2) {
+                // 1. PARENT_MENU_CD가 자신의 id와 같은 경우(최상위 메뉴) 먼저 정렬
+                if (a.PARENT_MENU_CD === a.id) {
+                    return -1;
+                } else if (b.PARENT_MENU_CD === b.id) {
+                    return 1;
+                }
+                // 2. PARENT_MENU_CD가 다른 경우
+                else {
+                    // 2-1. PARENT_MENU_CD가 같은 경우 SORT_ORDER 순으로 정렬
+                    if (a.PARENT_MENU_CD === b.PARENT_MENU_CD) {
+                        return a.SORT_ORDER - b.SORT_ORDER;
+                    }
+                    // 2-2. PARENT_MENU_CD가 다른 경우 PARENT_MENU_CD 순으로 정렬
+                    else {
+                        return a.PARENT_MENU_CD - b.PARENT_MENU_CD;
+                    }
+                }
+            }
+        });
+    }
+
+    // 정렬 실행
+    var sortedItems = sortItems(Object.values(items));
+    console.log("Sorted Items:", sortedItems);
+	
+	// PARENT_MENU_CD 순으로 1부터 번호매겨서 q_num이라는 키로 저장. 같은 질문에 대한 항목들은 그 값이 같다.
+	var qNumMap = {};
+	sortedItems.forEach(function(item) {
+		if (!qNumMap[item.PARENT_MENU_CD]) {
+			qNumMap[item.PARENT_MENU_CD] = questionMap[item.PARENT_MENU_CD].q_num;
+		}
+		item.q_num = qNumMap[item.PARENT_MENU_CD];
+	});
+	console.log("Sorted Items with q_num:", sortedItems);
+
+	// 결과 저장
+	surOpInfo.setJSON(sortedItems, false);
+	dlt_opList.setJSON(sortedItems, false);
+    q_cnt.setValue(surQInfo.getTotalRow()); // 로딩시 
+
+	// 내용화면 출력
+	if(surDataMap.get("state") === "진행중") { // 진행중에만 설문 참여 가능
+		
+	}
+	// 질문 배열 데이터를 기반으로 반복부를 생성하고 
+	// tbx와 rad 컴포넌트의 value를 변경
+	generator2.removeAll(); // 누적 안되게 지워주고 시작
+	for(i=0;i<dlt_QList.getTotalRow();i++) { // 질문수만큼 반복
+		// debugger;
+		var gen2Idx =generator2.insertChild(i); // 반복부 추가 (인자 안쓰면 0)
+		// tbx_textbox1 에 값 설정 : 질문
+		var n = gen2Idx + 1;
+		var txtbox1Obj = generator2.getChild( gen2Idx , "tbx_textbox1" );
+		txtbox1Obj.setValue("질문"+ n);
+		// tbx_question_text1에 값 설정 : 질문내용
+		var txtbox1ObjCon = generator2.getChild( gen2Idx , "tbx_question_text1" );
+		txtbox1ObjCon.setValue(n+". "+dlt_QList.getCellData(gen2Idx, "question_text"));
+
+		var th_qu_1ObjCon = generator2.getChild( gen2Idx , "th_qu" );
+		var tbx_question_text1_1ObjCon = generator2.getChild( gen2Idx , "tbx_question_text1" );
+		var grp_qu_text_1ObjCon = generator2.getChild( gen2Idx , "grp_qu_text" );
+		console.log("tbx_question_text1_1ObjCon: ",tbx_question_text1_1ObjCon.getValue().length);
+		console.log("grp_qu_text: ",grp_qu_text_1ObjCon.getStyle("width"));
+		/* if (
+			tbx_question_text1_1ObjCon.getValue().length > 65
+			)
+		{
+			var th_qu_prevHeight = Number(th_qu_1ObjCon.getStyle("height").split("px")[0]); // string to number
+			var h_th_qu = th_qu_prevHeight * 2;
+			console.log(h_th_qu);
+			th_qu_1ObjCon.setStyle("height", h_th_qu+"px"); // 항목 갯수에 따라 th 높이 변경
+			grp_qu_text_1ObjCon.setStyle("height", h_th_qu+"px"); // 항목 갯수에 따라 질문 감싸는 그룹 높이 변경
+		} */
+		
+		// tbx_textbox2 에 값 설정 : 항목
+		var txtbox2Obj = generator2.getChild( gen2Idx , "tbx_textbox2" );
+		txtbox2Obj.setValue("항목");
+
+		var gen2Obj_th_rad = generator2.getChild( gen2Idx , "th_rad" );
+		var grp_op_rad = generator2.getChild( gen2Idx , "grp_op_rad" );
+		var th_rad_prevHeight = Number(gen2Obj_th_rad.getStyle("height").split("px")[0]); // string to number
+
+		// rad_option_text1에 값 설정 : 각 항목내용
+		var txtbox2ObjCon = generator2.getChild(gen2Idx , "rad_option_text1" );
+		for (var j = 0; j < Object.values(questionMap)[i].children.length; j++){ // 문제별 항목수만큼 반복
+			txtbox2ObjCon.addItem(
+				j+1, // value
+				Object.values(questionMap)[i].children[j].option_text // label
+			);
+			var h = th_rad_prevHeight*(j+1);
+			gen2Obj_th_rad.setStyle("height", h+"px"); // 항목 갯수에 따라 th 높이 변경
+			grp_op_rad.setStyle("height", h+"px"); // 항목 갯수에 따라 항목라디오 감싸는 그룹 높이 변경
+		}
+		
+		// tbx_textbox3 에 값 설정 : 선택사유
+		var txtbox3Obj = generator2.getChild( gen2Idx , "tbx_textbox3" );
+		var txtbox3ObjCon = generator2.getChild( gen2Idx , "ipt_choiceReason1" );
+		txtbox3Obj.setValue("선택사유"); 
+	} 
+
+};
+
+scwin.render_questions_options = function (obj) {
+	// 내용화면 출력
+	// 질문 배열 데이터를 기반으로 반복부를 생성하고 
+	// tbx와 rad 컴포넌트의 value를 변경
+	generator2.removeAll(); // 누적 안되게 지워주고 시작
+	for(i=0;i<dlt_QList.getTotalRow();i++) { // 질문수만큼 반복
+		// debugger;
+		var gen2Idx =generator2.insertChild(i); // 반복부 추가 (인자 안쓰면 0)
+		// tbx_textbox1 에 값 설정 : 질문
+		var n = gen2Idx + 1;
+		var txtbox1Obj = generator2.getChild( gen2Idx , "tbx_textbox1" );
+		txtbox1Obj.setValue("질문"+ n);
+		// tbx_question_text1에 값 설정 : 질문내용
+		var txtbox1ObjCon = generator2.getChild( gen2Idx , "tbx_question_text1" );
+		txtbox1ObjCon.setValue(dlt_QList.getCellData(gen2Idx, "question_text"));
+		
+		// tbx_textbox2 에 값 설정 : 항목
+		var txtbox2Obj = generator2.getChild( gen2Idx , "tbx_textbox2" );
+		txtbox2Obj.setValue("항목");
+
+		// rad_option_text1에 값 설정 : 각 항목내용
+		var txtbox2ObjCon = generator2.getChild(gen2Idx , "rad_option_text1" );
+		for (var j = 0; j < Object.values(obj)[i].children.length; j++){ // 문제별 항목수만큼 반복
+			//console.log(Object.values(obj)[i].children);
+			txtbox2ObjCon.addItem(
+				j+1, // value
+				Object.values(obj)[i].children[j].option_text // label
+			);
+		}
+		
+		// tbx_textbox3 에 값 설정 : 선택사유
+		var txtbox3Obj = generator2.getChild( gen2Idx , "tbx_textbox3" );
+		var txtbox3ObjCon = generator2.getChild( gen2Idx , "ipt_choiceReason1" );
+		txtbox3Obj.setValue("선택사유"); 
+	} 
+};
+	
+
+/**
+ * 그리드뷰 이벤트: Function 체크 박스 클릭시 해당 row를 삭제 상태로 변경한다. !!!!!!!!!!!
+ * 체크 해제시에는 원래 상태로 되돌린다. (목록 그리드뷰)
+ */
+scwin.grd_memberBasic_oncellclick = function (row, col) {
+	if (col == 0) {
+		var rowStatus = surDataList.getRowStatus(row);
+		if (rowStatus == "C") {
+			surDataList.removeRow(row);
+		} else {
+			var chk_val = surDataList.getCellData(row, col);
+			if (chk_val == "1") {
+				surDataList.modifyRowStatus(row, "D");
+			} else {
+				//surDataList.undoRow(row); // 완료여부가 지워지는 문제 있음
+				surDataList.modifyRowStatus(row, "R");
+			}
+		}
+	}
+};
+
+/**
+ * 그리드뷰 이벤트: 더블클릭하면 wFrame Scope 적용된 설문 상세 화면을 팝업창으로 띄운다.
+ */
+scwin.grd_memberBasic_oncelldblclick = function (row, col) {
+    // 실제 인덱스 계산
+    var actualRow = (scwin.currentPage - 1) * scwin.gridRowCount + row;
+    var rowJSON = surDataList.getRowJSON(actualRow);
+	console.log(rowJSON);
+
+	if (surDataList.getRowStatus(actualRow) === "C") return;
+
+	var data = { json_data: rowJSON, callbackFn: "scwin.btn_search_onclick" }; // 팝업에 전달할 데이터
+	var options = {
+		id: "SV002M02",
+		popupName: "설문정보",
+		width: 1200, height: 600
+	};
+	var popupUrl = "/ui/SV/SV002M02.xml";
+
+	com.win.openPopup(popupUrl, options, data);  
+};
+
+/**
+ * 제출 submission 후처리 함수
+ */
+scwin.sbm_saveSurveyResult_submitdone = function(e) {
+	/* if(e.responseJSON.rsMsg.statusMsg.split("삭제실패 : ")[1].length>0){
+		com.win.alert(e.responseJSON.rsMsg.statusMsg.split("삭제실패 : ")[1])
+	} */
+	if (com.sbm.getResultCode(e) == gcm.MESSAGE_CODE.STATUS_SUCCESS) {
+		scwin.btn_search_onclick();
+	}
+};
+
+/**
+ * 참여여부 조회 후처리 함수
+ */
+scwin.sbm_getParticipateOrNotCallback = function(resBody) {
+	if (com.sbm.getResultCode(resBody) == gcm.MESSAGE_CODE.STATUS_SUCCESS) {
+		var data = resBody.responseJSON.userInfo;
+		var resList = resBody.responseJSON.dlt_participateWriteList;
+		console.log("resList: ",resList);
+		//dlt_participateList.setJSON(resList);
+
+		if(data == "true") {
+			tbx_participateTF.setValue('<span style="color:red">이미 참여한 설문입니다.</span>');
+			btn_regist.hide(); // 제출 버튼 숨기기
+			btn_result.show(); // 결과보기 버튼 보이기
+		} else {
+			tbx_participateTF.setValue("설문 응답 후 제출 버튼을 눌러 참여해 주세요.");
+			btn_regist.show();
+			btn_result.hide(); // 결과보기 버튼 숨기기
+		}
+
+		// 
+		if(resList) { // 참여한 경우
+			var gen2Length = generator2.getLength();
+			for (var i = 0; i < gen2Length; i++) {
+				var gen2Obj_rad = generator2.getChild(i, "rad_option_text1");
+				var gen2Obj_reason = generator2.getChild(i, "ipt_choiceReason1");
+				
+				var op_rad__cnt = gen2Obj_rad.getItemCount();
+				
+				gen2Obj_rad.setSelectedIndex(resList[i].sel_option_num-1); // 선택했던 항목을 선택으로 세팅
+				gen2Obj_reason.setValue(resList[i].reason); // 작성했던 선택사유를 작성 세팅
+
+				gen2Obj_rad.setDisabled(true);
+				gen2Obj_reason.setDisabled(true);
+			}
+
+		}
+
+	}
+};
+
+
+scwin.ipt_choiceReason1_onkeypress = function(e) {
+    var inputValue = e.target.value;
+	var inputLength = e.target.value.length;
+    console.log("입력된 문자열 길이: " + inputLength);
+
+    if (inputLength > 50) {
+        alert("50자까지만 적을 수 있어요.");
+        e.preventDefault(); // 추가 입력을 막음
+    }
+};
+
+scwin.ipt_choiceReason1_onkeyup = function(e) {
+    var inputValue = e.target.value;
+    var inputLength = e.target.value.length;
+    console.log("입력된 문자열 길이: " + inputLength);
+
+    if (inputLength > 50) {
+        alert("50자까지만 적을 수 있어요.");
+        e.target.value = e.target.value.substring(0, 50); // 50자까지만 유지
+    }
+};
+
+/**
+ * 설문 결과보기 클릭 시 결과 팝업 뜬다.
+ */
+scwin.btn_result_onclick = function(e) {
+	console.log(surDataMap.get("state"));
+
+	var rowJSON = surDataMap.getJSON();
+	console.log(rowJSON);
+	console.log(rowJSON.survey_id);
+
+	var data = { json_data: rowJSON, callbackFn: "scwin.btn_search_onclick" }; // 팝업에 전달할 데이터
+	var options = {
+		id: "SV007M07",
+		popupName: "설문결과",
+		width: 1200, height: 600
+	};
+	var popupUrl = "/ui/SV/SV007M07.xml";
+
+	com.win.openPopup(popupUrl, options, data);  
+};
+]]></script>
+		<style type="text/css"><![CDATA[ ]]></style>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents flex_gvw" id="" style="">
+			<w2:wframe id="" style="" src="../../cm/xml/contentHeader.xml" scope="true"></w2:wframe>
+			<xf:group class="shbox" id="" style="">
+				<xf:group class="shbox_inner" id="tbl_search" style="">
+					<xf:group adaptive="layout" adaptiveThreshold="900" class="w2tb tb" id="" style="width:100%;" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:100px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group style="" tagname="tr">
+							<xf:group class="w2tb_th " style="" tagname="th">
+								<w2:textbox class="req" id="" label="검색항목" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<xf:select1 ref="data:surSearchMap.condition" submenuSize="auto" appearance="minimal"
+									disabledClass="w2selectbox_disabled" chooseOption="" disabled="false" style="width:100px;float:left;" allOption=""
+									id="sbx_choiceBox" class="" direction="auto" ev:onviewchange="scwin.sbx_choiceBox_onviewchange" ev:onblur="" ev:onchange="">
+									<xf:choices>
+										<xf:item>
+											<xf:label><![CDATA[제목]]></xf:label>
+											<xf:value><![CDATA[title]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[작성자]]></xf:label>
+											<xf:value><![CDATA[creator]]></xf:value>
+										</xf:item>
+									</xf:choices>
+								</xf:select1>
+								<xf:select1 ref="" submenuSize="auto" chooseOptionLabel="-전체-" direction="auto" appearance="minimal"
+									disabledClass="w2selectbox_disabled" chooseOption="true" disabled="false" style="width:200px;display:none;float:left;" allOption=""
+									id="sbx_positionCd" renderType="native" class="" ev:onviewchange="" ev:onblur="" userData3="" optionOrder="">
+									<xf:choices></xf:choices>
+								</xf:select1>
+								<xf:input class="" id="keywordInput" placeholder="" style="width:148px;width: 165px;float:left;"
+									ref="data:surSearchMap.keyword">
+								</xf:input>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn_shbox" id="" style="">
+					<xf:trigger class="btn_cm sch" disabled="" id="btn_search" style="" type="button"
+						ev:onclick="scwin.btn_search_onclick">
+						<xf:label><![CDATA[조회]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group style="padding: 0 0 10px 0;" id="" class="dfbox">
+				<w2:textbox label="설문 목록" style="" id="" class="" tagname="h3"></w2:textbox>
+				<xf:group style="" id="" class="fr">
+					<w2:textbox class="sum" id="spn_memberCnt" label="" style=""></w2:textbox>
+					<w2:textbox class="" id="" label="건" style=""></w2:textbox>
+
+				</xf:group>
+			</xf:group>
+			<xf:group adaptiveThreshold="" class="gvwbox wq_flx" id="grp_list" style="">
+				<w2:gridView autoFit="allColumn" autoFitMinWidth="800" checkReadOnlyOnPasteEnable="" class="wq_gvw" columnMove="true"
+					dataList="data:dlt_surDataList_paging" ev:oncelldblclick="scwin.grd_memberBasic_oncelldblclick" focusMode="row" id="grd_memberBasic"
+					keyMoveEditMode="false" readOnly="true" rowNumHeaderValue="순번" rowNumVisible="false" rowStatusVisible="false" scrollByColumn="false"
+					scrollByColumnAdaptive="false" sortEvent="ondblclick" sortable="true" style="height:150px;" useFilterList="true"
+					rowStatusHeaderValue="상태" ev:onrowindexchange="scwin.grd_memberBasic_onrowindexchange"
+					ev:oncellclick="scwin.grd_memberBasic_oncellclick" drawType="virtual" keepDefaultColumnWidth="true" editModeEvent="ondblclick">
+					<w2:caption style="" id="caption7" value="this is a grid caption."></w2:caption>
+					<w2:header style="" id="header7">
+						<w2:row style="" id="row13">
+							<w2:column width="30" inputType="text" style="" id="column104" value="순번" displayMode="label"></w2:column>
+							<w2:column width="70" inputType="text" style="" id="column106" value="참여여부" displayMode="label"></w2:column>
+							<w2:column width="200" inputType="text" style="" id="column102" value="제목" displayMode="label"></w2:column>
+							<w2:column width="40" inputType="text" style="" id="column101" value="완료여부" displayMode="label"></w2:column>
+							<w2:column width="70" inputType="text" style="" id="column100" value="시작일" displayMode="label"></w2:column>
+							<w2:column width="70" inputType="text" style="" id="column99" value="종료일" displayMode="label"></w2:column>
+							<w2:column width="70" inputType="text" style="" id="column98" value="작성자" displayMode="label"></w2:column>
+						</w2:row>
+					</w2:header>
+					<w2:gBody style="" id="gBody7">
+						<w2:row style="" id="row14">
+							<w2:column width="30" inputType="text" style="" id="no" value="" displayMode="label"></w2:column>
+							<w2:column width="70" inputType="text" style="" id="participateTF" value="" displayMode="label" useFilter="true"></w2:column>
+							<w2:column width="200" inputType="text" style="text-align: left;" id="title" value="" displayMode="label"></w2:column>
+							<w2:column width="40" inputType="text" style="" id="state" value="" displayMode="label" allOption=""
+								chooseOption="" ref="" viewType="icon" readOnly="true">
+								<w2:choices>
+									<w2:item>
+										<w2:label><![CDATA[진행예정]]></w2:label>
+										<w2:value><![CDATA[01]]></w2:value>
+									</w2:item>
+									<w2:item>
+										<w2:label><![CDATA[진행중]]></w2:label>
+										<w2:value><![CDATA[02]]></w2:value>
+									</w2:item>
+									<w2:item>
+										<w2:label><![CDATA[완료]]></w2:label>
+										<w2:value><![CDATA[03]]></w2:value>
+									</w2:item>
+								</w2:choices>
+							</w2:column>
+							<w2:column width="70" inputType="calendar" style="" id="start_date" value="" displayMode="label"
+								viewType="icon">
+							</w2:column>
+							<w2:column width="70" inputType="calendar" style="" id="end_date" value="" displayMode="label"
+								viewType="icon">
+							</w2:column>
+							<w2:column width="70" inputType="text" style="" id="creator" value="" displayMode="label" readOnly="true"></w2:column>
+						</w2:row>
+					</w2:gBody>
+				</w2:gridView>
+				<w2:pageList buttonShowType="3" class="" deliImage="" deliImageStyle="" deliWidth="" delimiter="" displayButtonType="display"
+					displayFormat="#" displaySearchbox="false" displaySelectedIndex="true" ev:onchange="scwin.pageList3_onchange"
+					ev:oninputblur="scwin.pageList3_oninputblur" id="pageList3" pageSize="5" renderType=""
+					style="position: relative;maring: 0 auto;height: 20px;margin-top:10px;">
+				</w2:pageList>
+			</xf:group>
+		</xf:group>
+		<xf:group class="pop_contents" id="grp_popContent" style="">
+			<xf:group class="dfbox" id="" style="">
+				<w2:textbox class="" id="" label="설문정보" style="" tagname="h3"></w2:textbox>
+				<xf:group class="fr" id="" style="">
+					<xf:trigger class="btn_cm pt" ev:onclick="scwin.btn_result_onclick" id="btn_result" style="" type="button">
+						<xf:label><![CDATA[설문결과]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="tbbox" id="grp_surveyBasic1">
+				<xf:group adaptive="layout" adaptiveThreshold="900" class="w2tb tb" id="table1" style="" tagname="table">
+					<w2:attributes>
+						<w2:summary></w2:summary>
+					</w2:attributes>
+					<xf:group tagname="caption"></xf:group>
+					<xf:group tagname="colgroup">
+						<xf:group style="width:100px;" tagname="col"></xf:group>
+						<xf:group style="width:30%;" tagname="col"></xf:group>
+						<xf:group style="width:100px;" tagname="col"></xf:group>
+						<xf:group style="width:100.00px;" tagname="col"></xf:group>
+						<xf:group style="width:100px;" tagname="col"></xf:group>
+						<xf:group tagname="col"></xf:group>
+						<xf:group style="" tagname="col"></xf:group>
+					</xf:group>
+					<xf:group style="" tagname="tr">
+						<xf:group class="w2tb_th" style="text-align: center;" tagname="th">
+							<w2:attributes>
+								<w2:scope>row</w2:scope>
+							</w2:attributes>
+							<w2:textbox class="req" id="" label="제목" ref="" style="" userData2=""></w2:textbox>
+						</xf:group>
+						<xf:group class="w2tb_td" style="" tagname="td">
+							<w2:attributes>
+								<w2:colspan>6</w2:colspan>
+								<w2:rowspan>1</w2:rowspan>
+							</w2:attributes>
+							<w2:textbox id="title" label="" style="width: 90%;height: 23px;line-height: 23px;" ref="data:surDataMap.title"></w2:textbox>
+						</xf:group>
+					</xf:group>
+					<xf:group style="" tagname="tr">
+						<xf:group class="w2tb_th" tagname="th" style="text-align: center;">
+							<w2:attributes>
+								<w2:scope>row</w2:scope>
+							</w2:attributes>
+							<w2:textbox class="req" id="" label="시작일" ref="" style="" userData2=""></w2:textbox>
+						</xf:group>
+						<xf:group class="w2tb_td" tagname="td">
+							<w2:attributes></w2:attributes>
+							<w2:textbox id="start_date" label="" style="width: 150px;height: 23px;line-height: 23px;" ref="data:surDataMap.start_date"></w2:textbox>
+						</xf:group>
+						<xf:group class="w2tb_th" tagname="th" style="text-align: center;">
+							<w2:attributes>
+								<w2:scope>row</w2:scope>
+							</w2:attributes>
+							<w2:textbox class="req" id="" label="종료일" ref="" style="" userData2=""></w2:textbox>
+						</xf:group>
+						<xf:group class="w2tb_td" tagname="td">
+							<w2:attributes>
+								<w2:colspan>4</w2:colspan>
+								<w2:rowspan>1</w2:rowspan>
+							</w2:attributes>
+							<w2:textbox id="end_date" label="" style="width: 150px;height: 23px;line-height: 23px;" ref="data:surDataMap.end_date"></w2:textbox>
+						</xf:group>
+					</xf:group>
+					<xf:group tagname="tr" style=""><xf:group tagname="th" class="w2tb_th" style="text-align: center;">작성자<w2:attributes><w2:scope>row</w2:scope></w2:attributes></xf:group>
+						<xf:group tagname="td" class="w2tb_td">
+							<w2:attributes>
+								<w2:colspan>6</w2:colspan>
+								<w2:rowspan>1</w2:rowspan>
+							</w2:attributes>
+							<w2:textbox id="creator" label="" style="width: 150px;height: 23px;line-height: 23px;" ref="data:surDataMap.creator"></w2:textbox>
+						</xf:group></xf:group><xf:group style="" tagname="tr">
+						<xf:group class="w2tb_th" tagname="th" style="text-align: center;">
+							등록일
+							<w2:attributes>
+								<w2:scope>row</w2:scope>
+							</w2:attributes>
+						</xf:group>
+						<xf:group class="w2tb_td" tagname="td">
+							<w2:attributes></w2:attributes>
+							<w2:textbox id="created_at" label="" style="width: 150px;height: 23px;line-height: 23px;" ref="data:surDataMap.created_at"></w2:textbox>
+						</xf:group>
+						<xf:group class="w2tb_th" tagname="th" style="text-align: center;">
+							수정일
+							<w2:attributes>
+								<w2:scope>row</w2:scope>
+							</w2:attributes>
+						</xf:group>
+						<xf:group class="w2tb_td" tagname="td">
+							<w2:attributes>
+								<w2:colspan>4</w2:colspan>
+								<w2:rowspan>1</w2:rowspan>
+							</w2:attributes>
+							<w2:textbox id="updated_at" label="" style="width: 150px;height: 23px;line-height: 23px;" ref="data:surDataMap.updated_at"></w2:textbox>
+						</xf:group>
+					</xf:group>
+					<xf:group tagname="tr" style="">
+						<xf:group tagname="th" class="w2tb_th" style="text-align: center;">
+							상태
+							<w2:attributes>
+								<w2:scope>row</w2:scope>
+							</w2:attributes>
+						</xf:group>
+						<xf:group tagname="td" class="w2tb_td">
+							<w2:attributes></w2:attributes>
+							<w2:textbox id="state" label="" style="width: 150px;height: 23px;line-height: 23px;" ref="data:surDataMap.state"></w2:textbox>
+						</xf:group>
+						<xf:group tagname="th" class="w2tb_th" style="text-align: center;">
+							문제수
+							<w2:attributes>
+								<w2:scope>row</w2:scope>
+							</w2:attributes>
+						</xf:group>
+						<xf:group tagname="td" class="w2tb_td">
+							<w2:attributes>
+								<w2:colspan>4</w2:colspan>
+								<w2:rowspan>1</w2:rowspan>
+							</w2:attributes>
+							<w2:textbox id="q_cnt" label="" style="width: 150px;height: 23px;line-height: 23px;"></w2:textbox>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group class="tabbox" id="">
+				<w2:tabControl adaptive="layout" adaptiveThreshold="900" alwaysDraw="false" class="wq_tab" closable="false"
+					confirmFalseAction="new" confirmTrueAction="exist" id="tac_memberInfo" selectedIndex="0" style="" useConfirmMessage="false"
+					useMoveNextTabFocus="false" useTabKeyOnly="true">
+					<w2:tabs disabled="false" id="tab_memberDetail" label="설문내용" style=""></w2:tabs>
+					<w2:content alwaysDraw="false" frameMode="wframePreload" id="content1" scope="true"></w2:content>
+				</w2:tabControl>
+			</xf:group>
+
+			<xf:group class="tbbox" id="grp_tbbox_onlyContent" style="">
+
+				<xf:group class="w2tb" id="QAndOpTable1" style="position: relative ;width:100%;margin-top:10px;" tagname="table">
+					<w2:attributes>
+						<w2:summary></w2:summary>
+					</w2:attributes>
+					<xf:group tagname="colgroup">
+						<xf:group style="width:30.00%" tagname="col"></xf:group>
+						<xf:group style="width:70.00%" tagname="col"></xf:group>
+					</xf:group>
+					<w2:generator id="generator2" style="position: relative;width: 100%;height: 100px;" tagname="tbody">
+						<xf:group id="trMain1_Area1" tagname="tr">
+							<xf:group class="w2tb_th req" style="" tagname="th" id="th_qu">
+								<w2:textbox id="tbx_textbox1" label="질문" style="position: relative;width:100%;height: 23px;"></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="display: flex;flex-wrap: wrap;height: 100%;border-left-style: hidden;" tagname="td">
+							<xf:group id="grp_qu_text" style="height: 100%;width: 100%;"><w2:textbox ref="" style="width: 100%;height: 23px;line-height: 23px;" id="tbx_question_text1" label="">
+								</w2:textbox></xf:group></xf:group>
+						</xf:group>
+						<xf:group id="trMain2_Area2" tagname="tr" style="">
+							<xf:group class="w2tb_th req" style="" tagname="th" id="th_rad">
+								<w2:textbox id="tbx_textbox2" label="항목" style="position: relative;width:100%;height: 23px;"></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="display: flex;flex-wrap: wrap;height: 100%;border-top-style: hidden;border-bottom-style: hidden;padding-bottom: 6px;border-left-style: hidden;" tagname="td">
+							<xf:group id="grp_op_rad" style="height: 100%;width: 100%;"><xf:select1 ref="data:dlt_participateWriteList.option_text" appearance="full" ev:onviewchange="scwin.rad_option_text1_onviewchange" style="width: 90%;height: 23px;" id="rad_option_text1" renderType="radiogroup" rows="" cols="" mandatory="true" selectedIndex="-1">
+									<xf:choices></xf:choices>
+								</xf:select1></xf:group></xf:group>
+						</xf:group>
+						<xf:group id="trMain3_Area3" tagname="tr" style="">
+							<xf:group class="w2tb_th req" style="" tagname="th">
+								<w2:textbox id="tbx_textbox3" label="선택사유" style="position: relative;width:100%;height: 23px;"></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<xf:input id="ipt_choiceReason1" style="width: 90%;height: 23px;line-height: 23px;" ref="data:dlt_participateWriteList.reason" maxlength="50"
+									ev:onchange="scwin.ipt_choiceReason1_onchange" placeholder="50자 이내로 적어주세요." ev:onkeypress="scwin.ipt_choiceReason1_onkeypress" ev:onkeyup="scwin.ipt_choiceReason1_onkeyup">
+								</xf:input>
+							</xf:group>
+						</xf:group>
+						<xf:group class="dfbox" id="" style=""></xf:group>
+					</w2:generator>
+				</xf:group>
+			</xf:group>
+			<xf:group class="btnbox" id="" style="">
+				
+				<xf:group class="fr" id="" style="">
+					<w2:textbox id="tbx_participateTF" label="참여여부" style="width: 250px;height: 30px;float: left;text-align: center;line-height : 30px;" escape="false"></w2:textbox><xf:trigger class="btn_cm pt" ev:onclick="scwin.btn_regist_onclick" id="btn_regist" style="" type="button">
+						<xf:label><![CDATA[제출]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

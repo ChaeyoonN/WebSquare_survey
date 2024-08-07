@@ -1,0 +1,938 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_programId="SV007M07" meta_programName="설문 결과" meta_programDesc="설문 결과와 차트 보여주는 화면" meta_author="Inswave Systems" meta_date="2021.02.25">
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection>
+				<w2:dataList baseNode="list" repeatNode="map" id="questionList" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="question_id" name="질문아이디" dataType="text"></w2:column>
+						<w2:column id="question_text" name="질문" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="map" id="surDataList" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="survey_id" name="설문아이디"></w2:column>
+						<w2:column dataType="text" id="title" name="제목"></w2:column>
+						<w2:column dataType="text" id="state" ignoreStatus="true" name="상태"></w2:column>
+						<w2:column dataType="text" id="start_date" name="시작일"></w2:column>
+						<w2:column dataType="text" id="end_date" name="종료일"></w2:column>
+						<w2:column dataType="text" id="creator" name="작성자"></w2:column>
+						<w2:column dataType="text" id="created_at" name="등록일"></w2:column>
+						<w2:column dataType="text" id="updated_at" name="수정일"></w2:column>
+						<w2:column id="chk" name="선택" dataType="text"></w2:column>
+						<w2:column id="rowStatus" name="행상태" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="false"></w2:data>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="surDataMap">
+					<w2:keyInfo>
+						<w2:key id="survey_id" name="설문아이디" dataType="number"></w2:key>
+						<w2:key id="title" name="제목" dataType="text"></w2:key>
+						<w2:key id="creator" name="작성자" dataType="text"></w2:key>
+						<w2:key id="start_date" name="시작일" dataType="text"></w2:key>
+						<w2:key id="end_date" name="종료일" dataType="text"></w2:key>
+						<w2:key id="state" name="상태" dataType="text"></w2:key>
+						<w2:key id="created_at" name="등록일" dataType="text"></w2:key>
+						<w2:key id="updated_at" name="수정일" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="optionList" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="option_id" name="항목아이디" dataType="text"></w2:column>
+						<w2:column id="option_text" name="항목" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="surViewList" repeatNode="map" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="survey_id" name="설문아이디" dataType="text"></w2:column>
+						<w2:column id="title" name="제목" dataType="text"></w2:column>
+						<w2:column id="start_date" name="시작일" dataType="text"></w2:column>
+						<w2:column id="end_date" name="종료일" dataType="text"></w2:column>
+						<w2:column id="creator" name="작성자" dataType="text"></w2:column>
+						<w2:column id="created_at" name="등록일" dataType="text"></w2:column>
+						<w2:column id="updated_at" name="수정일" dataType="text"></w2:column>
+						<w2:column id="question_id" name="질문아이디" dataType="text"></w2:column>
+						<w2:column id="question_text" name="질문" dataType="text"></w2:column>
+						<w2:column id="option_id" name="항목아이디" dataType="text"></w2:column>
+						<w2:column id="option_text" name="항목" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" ev:oncelldatachange="" id="dlt_menu" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="chk" ignoreStatus="true" name="선택"></w2:column>
+						<w2:column dataType="text" id="id" name="코드"></w2:column>
+						<w2:column dataType="text" id="MENU_NM" name="질문"></w2:column>
+						<w2:column id="PARENT_MENU_CD" name="부모코드" dataType="text"></w2:column>
+						<w2:column dataType="number" id="MENU_LEVEL" name="메뉴레벨"></w2:column>
+						<w2:column id="SORT_ORDER" name="정렬순서" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="dlt_responseCountList" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="survey_id" name="설문아이디" dataType="text"></w2:column>
+						<w2:column id="question_id" name="질문아이디" dataType="text"></w2:column>
+						<w2:column id="option_id" name="항목아이디" dataType="text"></w2:column>
+						<w2:column id="sel_option_num" name="선택항목순번" dataType="text"></w2:column>
+						<w2:column id="option_text" name="항목" dataType="text"></w2:column>
+						<w2:column id="responseCount" name="응답수" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="dlt_reasonList" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="survey_id" name="설문아이디"></w2:column>
+						<w2:column dataType="text" id="question_id" name="질문아이디"></w2:column>
+						<w2:column dataType="text" id="option_id" name="항목아이디"></w2:column>
+						<w2:column id="sel_option_num" name="선택항목순번" dataType="text"></w2:column>
+						<w2:column dataType="text" id="reason" name="선택사유"></w2:column>
+						<w2:column dataType="text" id="user_id" name="항목"></w2:column>
+						<w2:column dataType="text" id="response_date" name="응답수"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="dlt_chartDataList" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="value" name="값" dataType="text"></w2:column>
+						<w2:column id="label" name="라벨" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="dlt_reasonPopPerOption" style="" repeatNode="map" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="ID" name="질문IDX_항목IDX"></w2:column>
+						<w2:column dataType="text" id="reason" name="선택사유"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<xf:submission id="sbm_getLoginMemberBasic" ref="data:json,surDataMap" target='data:json,surViewList'
+				action="/participation/view" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler=""
+				customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.searchMemberBasicCallback" ev:submiterror=""
+				abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_saveMemberInfo" ref='data:json,["surDataMap","dlt_menu"]' target=""
+				action="/participation/saveSurveyInfo" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_saveMemberInfo_submitdone"
+				ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_getResponseCount" ref="data:json,surDataMap" target="data:json,dlt_responseCountList"
+				action="/participation/getResponseCount" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_getResponseCount_submitdone"
+				ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_getReason" ref="data:json,surDataMap" target="" action="/participation/getReason" method="post"
+				mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg=""
+				ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_getParticipants" ref="" target="" action="/participation/getParticipants" method="post"
+				mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg=""
+				ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo></w2:layoutInfo>
+		<w2:publicInfo method=""></w2:publicInfo>
+
+		<script type="text/javascript" lazy="false"><![CDATA[
+/**
+ * 화면 초기화에 필요한 로직을 수행한다.
+ */
+scwin.onpageload = function () {
+	scwin.param = com.data.getParameter();
+	var d = scwin.param.json_data;
+	var jsonData = 
+		{"survey_id":d.survey_id, 
+		"title":d.title,
+		"creator":d.creator,
+		"start_date":d.start_date,
+		"end_date":d.end_date, 
+		"created_at":d.created_at,
+		"updated_at":d.updated_at,
+		"state":d.state}
+	;
+	surDataMap.setJSON(jsonData);
+
+	if (com.win.isAdmin() == false) {
+		btn_removeSurvey.hide(); // 삭제
+        btn_saveMemberBasic.hide(); // 저장(수정)
+        btn_cancelMemberBasic.hide(); // 취소
+	}
+
+	com.data.setChangeCheckedDc(surDataMap);
+	com.data.setChangeCheckedDc(dlt_menu);
+};
+
+scwin.resultData = []; // 차트 그리기 위해 선언
+
+/**
+ * 화면 초기화 데이터가 모두 로딩되면 발생하는 이벤트
+ */
+scwin.ondataload = function () {
+	scwin.searchMemberBasic(); // 설문 문제와 항목 정보를 조회하는 함수
+	
+};
+
+/**
+ * 설문 참여자수, 질문별 항목들과 항목별 응답수, 선택사유 조회한다.
+ */
+scwin.getResultData = function () {
+//	com.sbm.execute(sbm_getParticipants);
+	com.sbm.execute(sbm_getResponseCount);
+	//com.sbm.execute(sbm_getReason);
+};
+/**
+ * sbm_getResponseCount 후 처리 함수
+ */
+scwin.sbm_getResponseCount_submitdone = function(resBody) {
+    if (com.sbm.getResultCode(resBody) == gcm.MESSAGE_CODE.STATUS_SUCCESS) {
+		var alldata = resBody.responseJSON;
+		var data = resBody.responseJSON.dlt_responseCountList;
+		var participants = resBody.responseJSON.participants;
+		var reasons = resBody.responseJSON.reasons;
+        console.log("data 데이터: ",data); // 응답수 있음
+        console.log("reasonList 데이터: ",reasons); // 응답 다 있음
+        tbx_participant_number.setValue(participants.number+"명");
+        if(data.length > 0) {
+            dlt_responseCountList.setJSON(data, false);
+            let chartJsonData = {};
+            chartJsonData.data = [];
+            var responsePercentage = 0;
+            // 각 question_id별로 모든 옵션 항목을 찾기
+            let questionIds = [...new Set(data.map(item => item.question_id))];
+            console.log(questionIds);
+
+            let questionIdsOfReasons = [...new Set(reasons.map(item => item.question_id))];
+            reasons.sort((a, b) => {
+                if (parseInt(a.question_id) < parseInt(b.question_id)) return -1;
+                if (parseInt(a.question_id) > parseInt(b.question_id)) return 1;
+                return 0;
+            }); // question_id 오름차순으로 정렬
+            questionIdsOfReasons.sort((a, b) => {
+                if (parseInt(a) < parseInt(b)) return -1;
+                if (parseInt(a) > parseInt(b)) return 1;
+                return 0;
+            }); // question_id 오름차순으로 정렬
+             console.log("reasons를 sort : ",reasons);
+            //
+            for (var i = 0; i < questionIds.length; i++){ // 문제수만큼 반복
+
+                var gen2Idx =generator2.insertChild(i); // 반복부 추가 (인자 안쓰면 0)
+                //var grp_outer_flex_container = generator2.getChild( gen2Idx , "grp_outer_flex_container" );
+                //grp_outer_flex_container.setStyle("display", "flex");
+
+                //var grpUnderGen2Obj = generator2.getChild( gen2Idx , "grp_text_under_gen2" );
+                //grpUnderGen2Obj.setStyle("width", "50%"); 
+
+                var gen3Obj = generator2.getChild( gen2Idx , "generator3" );
+                gen3Obj.setStyle("display", "flex");
+                gen3Obj.setStyle("flex-direction", "column");
+                gen3Obj.setStyle("flex", "1");
+                gen3Obj.setStyle("align-items", "flex-start");
+                gen3Obj.setStyle("margin-bottom", "20px");
+
+                // tbx부
+                // 1. 질문텍스트
+                var n = i+1;
+                const caption = scwin.resultData
+                                .filter(item => item.MENU_LEVEL === 1)
+                                .map(item => item.MENU_NM);
+                var tbx_question_text = generator2.getChild(gen2Idx, "tbx_question_text");
+                tbx_question_text.setValue(n +". " + caption[i]);
+                tbx_question_text.setStyle("font-weight", "bold");
+                tbx_question_text.setStyle("font-size", "1rem");
+                tbx_question_text.setStyle("width", "100%");
+                tbx_question_text.setStyle("height", "100%");
+                // 2. 총 응답수
+                var tbx_total_responses = generator2.getChild(gen2Idx, "tbx_total_responses");
+                tbx_total_responses.setValue("총 응답수 : " + participants.number + " 명");
+                tbx_total_responses.setStyle("font-weight", "bold");
+                tbx_total_responses.setStyle("color", "red");
+                tbx_total_responses.setStyle("margin-top", "20px");
+                tbx_total_responses.setStyle("margin-bottom", "10px");
+
+                // 3. tbx_label(항목텍스트) and fusion chart
+                var fChart1Obj = generator2.getChild(gen2Idx , "fusionChart1");
+                let questionId = questionIds[i];
+                // questionId당 항목수 구하기
+                let options = scwin.resultData.filter(item => item.MENU_LEVEL === 2 && item.PARENT_MENU_CD === questionId);
+                console.log("options: ",options);
+                
+                // 각 옵션별 응답수 계산
+                for (let j = 0; j < options.length; j++) { // 문제당 항목수만큼 반복
+                    var op_n = j + 1;
+                    let option = options[j]; // option요소
+                    console.log("option[j]: ",option);
+                    let optionData = data.find(item => item.option_id === option.id);
+                    let responseCount = optionData ? optionData.responseCount : 0; // 응답수
+
+                    let reasonsForOption = reasons.filter(item => item.option_id === option.id);
+                    console.log("선택사유 빈거 포함한 특정 항목에 대한 모든 응답 가진 array: ",reasonsForOption); // 선택사유 빈거 포함한 특정 항목에 대한 모든 응답 가진 array
+
+                    // group 생성
+                    var grp_flex_container = gen3Obj.getChild(gen3Idx, "grp_flex_container");
+                    // tbx_label(항목텍스트) 생성
+                    /**/ 
+                    var gen3Idx =gen3Obj.insertChild(j);
+                    var tbx_label = gen3Obj.getChild(gen3Idx, "tbx_label");
+                    tbx_label.setValue("("+op_n+") "+option.MENU_NM);
+                    // tbx_label.setStyle("display", "inline-block");
+                    tbx_label.setStyle("font-weight", "bold");
+                    tbx_label.setStyle("margin-top", "5px"); 
+
+                    // 퍼센트 바 생성
+                    // 퍼센트 계산
+                    responsePercentage = Math.round((responseCount / participants.number) * 100);
+                    var pgbar_label = gen3Obj.getChild(gen3Idx, "pgbar_label");
+                    pgbar_label.animate(0,responsePercentage,3000,function(){console.log("finished")});// 3000은 작동시간
+                    // 응답수 값
+                    var gen3_tbx_val = gen3Obj.getChild(gen3Idx, "tbx_val");
+                    gen3_tbx_val.setValue(responseCount+"표");
+
+                    // 선택사유 생성
+                   var gen3Obj_choice_reason = gen3Obj.getChild(gen3Idx, "tbx_choice_reason");
+                    var gen3Obj_btn_reason_pop = gen3Obj.getChild(gen3Idx, "btn_reason_pop");
+                    gen3Obj_btn_reason_pop.setUserData('gen2Idx', gen2Idx); // 선택사유버튼이 몇번째 질문에 대해 존재하는지 알기 위해 설정
+                    
+                    let validReasons = reasonsForOption.filter(reason => reason.reason); // reason이 있는것만 모은 reasonsForOption 과 같은 형태
+                    var r_list = [];
+                    validReasons.forEach(reasonObject => {
+                        r_list.push( { "ID": i + "_" + j, "reason":reasonObject.reason } );
+                    });
+                    console.log("r_list: ",r_list);
+                    if(r_list.length > 0) {
+                        dlt_reasonPopPerOption.setJSON(r_list, true); // 기존리스트에 추가여부 true
+                    }
+                    
+                    if (reasonsForOption.length > 0) {
+
+                        console.log("선택사유 존재하는 특정항목에 대한 응답으로만 이뤄진 array: ",validReasons); // 선택사유 존재하는 특정항목에 대한 응답으로만 이뤄진 array
+                        if (validReasons.length > 0) {
+                            
+                            gen3Obj_choice_reason.hide();
+                            gen3Obj_btn_reason_pop.show();
+                            
+                        } else {
+                            gen3Obj_choice_reason.setValue("선택 사유 없음");
+                            gen3Obj_btn_reason_pop.hide();
+                        }
+                    } else {
+                        gen3Obj_choice_reason.setValue("선택 사유 없음");
+                        gen3Obj_btn_reason_pop.hide();
+                    } 
+
+                    chartJsonData.data.push({
+                        "value": responseCount,
+                        "label": option.MENU_NM,
+                        "displayValue": option.MENU_NM.length > 20 ? option.MENU_NM.substr(0,20)+"... (" + responsePercentage + "%)" : option.MENU_NM + " (" + responsePercentage + "%)"
+                    });
+                    dlt_chartDataList.setRowJSON(
+                                                    j, 
+                                                    {
+                                                        "value": responseCount,
+                                                        "label": option.MENU_NM
+                                                    }, 
+                                                    false
+                                                );
+                }
+                fChart1Obj.setChartAttribute(
+                    {
+                        "caption": caption[i],
+                        "canvasTopPadding": 6,
+                        "canvasRightMargin": 10,
+                        "canvasLeftPadding": 6,
+                        "canvasRightPadding": 6,
+                        "chartBottomMargin": 16,
+                        "xAxisName" : "항목", 
+                        "yAxisName":"응답자수",
+                        "numberSuffix": "표",
+                        "showValues": "1",
+                        "yAxisMaxValue" : participants.number,
+                       // "labelDisplay": "Auto",
+                       "useEllipsesWhenOverflow": "1"
+                    }
+                );
+                //fChart1Obj.setChartColumnSimpleRef("data:dlt_chartDataList");
+                fChart1Obj.changeType('bar2d');
+                //fChart1Obj.setStyle("flex", "1");
+                //fChart1Obj.setStyle("margin", "auto");               // 수평 및 수직 중앙 정렬
+                //fChart1Obj.setStyle("height", "50%");               // 컨테이너 높이 100%
+                fChart1Obj.setStyle("width", "40%");
+                fChart1Obj.setJSONData(chartJsonData);
+                chartJsonData.data = []; // 비우기
+            }
+            console.log("json",chartJsonData);        
+            console.log("dlt",dlt_chartDataList);        
+        } else {
+            var gen2Idx =generator2.insertChild();
+            var fusionChart1 = generator2.getChild(gen2Idx, "fusionChart1");
+            fusionChart1.setStyle("height", "50px"); // 간격
+            var tbx_nodata_ele = generator2.getChild(gen2Idx, "tbx_nodata");
+            // tbx_nodata 요소의 텍스트를 가운데 정렬하도록 스타일을 설정합니다.
+            tbx_nodata_ele.setStyle("margin", "auto");               // 수평 및 수직 중앙 정렬
+            tbx_nodata_ele.setStyle("textAlign", "center");          // 텍스트 수평 중앙 정렬
+            tbx_nodata_ele.setStyle("height", "100%");               // 컨테이너 높이 100%
+            tbx_nodata_ele.setStyle("width", "100%");                // 컨테이너 너비 100%
+            tbx_nodata_ele.setStyle("color", "gray");                // 글자 색상 설정
+            tbx_nodata_ele.setStyle("fontStyle", "italic");          // 기울임꼴 설정
+            tbx_nodata_ele.setValue("설문 결과 데이터가 없습니다."); 
+        }
+
+	} // if success
+};
+/**
+ * 설문 문제와 항목 정보를 조회한다.
+ */
+scwin.searchMemberBasic = function () {
+	com.sbm.execute(sbm_getLoginMemberBasic);
+};
+/**
+ * 설문 문제와 항목 정보를 조회 후 후처리 함수
+ */
+scwin.searchMemberBasicCallback = function (resBody) {
+    var data = resBody.responseJSON.surViewList;
+
+    // 중복없이 질문 아이디 순으로 질문 얻기
+    var questions = {};
+    data.forEach(item => {
+        if (!questions[item.question_id]) {
+            questions[item.question_id] = {
+                id: item.question_id,
+                MENU_NM: item.question_text,
+                PARENT_MENU_CD: item.question_id,
+                MENU_LEVEL: 1,
+                SORT_ORDER: 0,
+                children: []
+            };
+        }
+    });
+    var questionList = Object.values(questions);
+    questionList.sort((a, b) => a.id - b.id); // id 오름차순으로 정렬
+
+    // 중복없이 질문 및 항목 아이디 순으로 얻기
+    var items = {};
+    data.forEach(item => {
+        if (!items[item.option_id]) {
+            items[item.option_id] = {
+                id: item.option_id,
+                MENU_NM: item.option_text,
+                PARENT_MENU_CD: item.question_id,
+                MENU_LEVEL: 2,
+                SORT_ORDER: Object.keys(items).length + 1
+            };
+            questions[item.question_id].children.push(items[item.option_id]);
+        }
+    });
+
+    // 정렬 함수
+    function sortItems(items) {
+        return items.sort((a, b) => {
+            if (a.MENU_LEVEL === 2) {
+                // 1. PARENT_MENU_CD가 자신의 id와 같은 경우(최상위 메뉴) 먼저 정렬
+                if (a.PARENT_MENU_CD === a.id) {
+                    return -1;
+                } else if (b.PARENT_MENU_CD === b.id) {
+                    return 1;
+                }
+                // 2. PARENT_MENU_CD가 다른 경우
+                else {
+                    // 2-1. PARENT_MENU_CD가 같은 경우 SORT_ORDER 순으로 정렬
+                    if (a.PARENT_MENU_CD === b.PARENT_MENU_CD) {
+                        return a.SORT_ORDER - b.SORT_ORDER;
+                    }
+                    // 2-2. PARENT_MENU_CD가 다른 경우 PARENT_MENU_CD 순으로 정렬
+                    else {
+                        return a.PARENT_MENU_CD - b.PARENT_MENU_CD;
+                    }
+                }
+            }
+        });
+    }
+
+    // 정렬 실행
+    var sortedQuestions = sortItems(questionList);
+    var sortedItems = sortItems(Object.values(items));
+
+    // 데이터를 각각 별도로 저장
+    var questionData = sortedQuestions;
+    var itemData = sortedItems;
+    //var resultData = [];
+
+    // 원하는 결과 데이터 생성
+    for (var i = 0; i < questionData.length; i++) {
+        scwin.resultData.push(questionData[i]);
+        for (var j = 0; j < itemData.length; j++) {
+            if (itemData[j].PARENT_MENU_CD === questionData[i].id) {
+                scwin.resultData.push(itemData[j]);
+            }
+        }
+    }
+    console.log("result:", scwin.resultData);
+    dlt_menu.setJSON(scwin.resultData);
+
+    row_cnt.setValue(dlt_menu.getRowCount()); // 전체 행수(질문+항목) 로딩시 세팅 (화면엔 안보임)
+
+    var q = dlt_menu.getMatchedColumnData("MENU_LEVEL", 1, "id", true); // 질문 및 항목데이터에서 질문 추출 (id)
+    q_cnt.setValue(q.length); // 질문 수 로딩시 세팅
+    scwin.getResultData(); // 설문 질문별 항목들과 항목별 응답수, 선택사유 조회하는 함수
+};
+
+/**
+ * 저장 버튼 클릭 시 업데이트(등록, 수정, 삭제)된 코드 그룹을 데이터베이스에 저장한다.
+ */
+scwin.btn_saveMemberBasic_onclick = function () {
+	if (surDataMap.getModifiedIndex().length > 0) {
+		if (com.data.validateGroup(grp_surveyBasic1)) {
+			com.win.confirm(com.data.getMessage("MSG_CM_00001"), "scwin.saveMemberBasicConfirmCallback");
+            // 변경된 데이터를 저장하시겠습니까?
+		}
+	} else if(dlt_menu.getModifiedIndex().length > 0) {
+        com.win.confirm(com.data.getMessage("MSG_CM_00001"), "scwin.saveMemberBasicConfirmCallback");
+        // 변경된 데이터를 저장하시겠습니까?
+    } else {
+		com.win.alert(com.data.getMessage("MSG_CM_00005")); // 변경된 데이터가 없습니다.
+	}
+};
+
+scwin.saveMemberBasicConfirmCallback = function (res) {
+	if (res.clickValue === true) {
+		com.sbm.execute(sbm_saveMemberInfo);
+	}
+};
+
+scwin.cancelMemberBasicConfirmCallback = function (res) {
+	if (res.clickValue === true) {
+		com.win.closePopup();
+	}
+};
+
+/**
+ * 저장 버튼 클릭해서 요청 처리 한 후 처리 함수
+ */
+scwin.sbm_saveMemberInfo_submitdone = function (e) {
+    com.win.alert(e.responseJSON.rsMsg.statusMsg, function () { // 컨트롤러의 result msg 알림창
+        surDataMap.initRowStatus(); // 변경되지 않음 상태로 설정
+        dlt_menu.initRowStatus(); // 변경되지 않음 상태로 설정
+        com.win.closePopup({}, scwin.closeCallbackFncName);
+    });
+};
+
+/**
+ * 삭제 버튼 클릭 시 설문 정보를 삭제한다.
+*/
+scwin.btn_removeSurvey_onclick = function(e) {
+    //com.sbm.execute();
+};
+
+/**
+ * 질문 또는 항목 추가(등록) 버튼 클릭
+ */
+scwin.btn_addMenu_onclick = function () {
+	var menu_cnt = dlt_menu.getTotalRow();
+
+	if (menu_cnt == 0) { // 행이 없다면
+		com.win.alert(com.data.getMessage("MSG_CM_00022"));
+		return;
+	}
+    
+	if (grd_menu.getFocusedRealRowIndex() === -1) { // 포커스된 행의 인덱스가 없다면
+		grd_menu.setFocusedCell(0, "id");
+	}
+
+
+	var currMenuNm = dlt_menu.getCellData(grd_menu.getFocusedRealRowIndex(), "MENU_NM");
+	var currMenuLevel = com.num.parseInt(dlt_menu.getCellData(grd_menu.getFocusedRealRowIndex(), "MENU_LEVEL"));
+    
+    var idxs = dlt_menu.getMatchedIndex("MENU_LEVEL", 1, true, 0, dlt_menu.getTotalRow());
+    if (currMenuLevel ===1 && grd_menu.getFocusedRealRowIndex() !== idxs[idxs.length-1]) { 
+        // 선택행 레벨이 1이고 선택행이 마지막 질문행이 아니라면
+		com.win.alert(com.data.getMessage("MSG_CM_00101"));
+		return;
+	}
+    if (currMenuLevel ===2 && grd_menu.getFocusedRealRowIndex() < dlt_menu.getTotalRow()-1) { 
+        // 선택행 레벨이 2이고 선택행이 마지막행이 아니라면 
+		com.win.alert(com.data.getMessage("MSG_CM_00101"));
+		return;
+	}
+
+	if (menu_cnt != 0 && grd_menu.getFocusedRowIndex() == -1) {
+		com.win.alert(com.data.getMessage("MSG_CM_00029")); // 코드를 클릭하셔야 합니다.
+	} else {
+		scwin.selectLevel(currMenuNm);
+	}
+};
+
+/**
+ * 메뉴레벨이 1 또는 2일 경우에 실행되는 함수
+ * 알림창의 Yes, No에 따라서 하위에 만들 것인지, 동일한 레벨로 만들 것인지 결정한다.
+ */
+scwin.selectLevel = function (currMenuNm, currMenuLevel) {
+	com.win.confirm(currMenuNm + com.data.getMessage("MSG_CM_00030"), "scwin.selectLevelCallbak");
+};
+
+scwin.selectLevelCallbak = function (res) {
+	if (res.clickValue === true) {
+		scwin.lowerLevel();
+	} else {
+        
+		scwin.equalLevel();
+	}
+};
+
+/**
+ * 같은 레벨의 노트에 메뉴를 추가한다.
+ */
+scwin.equalLevel = function () {
+	var focusedRowIndex = grd_menu.getFocusedRealRowIndex();
+	var parentMenuCd = dlt_menu.getCellData(focusedRowIndex, "PARENT_MENU_CD");
+	var parentMenuLevel = dlt_menu.getCellData(focusedRowIndex, "MENU_LEVEL");
+	// PARENT_MENU_CD 값이 parentMenuCd인 데이터의 인덱스 배열로 반환
+    var rowIndexArr = dlt_menu.getMatchedIndex("PARENT_MENU_CD", parentMenuCd, true, 0, dlt_menu.getTotalRow());
+	
+    // 특정인덱스의 특정컬럼의 데이터 문자열로 반환: 해당 부모키 가진 데이터중 마지막 데이터->의 숫자 얻기
+	//var menuLevel = com.num.parseInt(dlt_menu.getCellData(rowIndexArr[rowIndexArr.length - 1], "MENU_LEVEL"));
+	var menuLevel = com.num.parseInt(parentMenuLevel);
+	var sortOrder = com.num.parseInt(dlt_menu.getCellData(rowIndexArr[rowIndexArr.length - 1], "SORT_ORDER")) + 1;
+    if(menuLevel === 1) {
+        sortOrder = 0;
+    }
+	
+    var insertRowIndex = scwin.getInsertRowIndex(parentMenuCd);
+	//var menuCd = scwin.getInsertRowMenuCd(parentMenuCd, menuLevel, false);
+
+	var insertJson = [{
+		"id": null,
+		"PARENT_MENU_CD": menuLevel === 1? null : parentMenuCd,
+		"MENU_LEVEL": menuLevel,
+		"SORT_ORDER": sortOrder
+	}];
+   
+	dlt_menu.insertJSON(insertRowIndex, insertJson); // 인덱스에 json길이 만큼의 데이터 삽입
+	grd_menu.setFocusedCell(insertRowIndex, "id", true);
+};
+
+/**
+ * 새로 추가되는 메뉴로 RowIndex를 반환한다.
+ */
+scwin.getInsertRowIndex = function (parentMenuCd) {
+    // 특정 부모키 가진 데이터들의 인덱스 배열 얻기
+	var rowIndexArr = dlt_menu.getMatchedIndex("PARENT_MENU_CD", parentMenuCd, true, 0, dlt_menu.getTotalRow());
+	var rowIdx = "";
+    console.log("선택행의 부모키 가진 데이터들의 인덱스 배열: ",rowIndexArr);
+
+	if (rowIndexArr.length > 0) {
+		var lastIndex = rowIndexArr[rowIndexArr.length - 1]; // 인덱스들 중 마지막 인덱스
+
+		var rowIdx = dlt_menu.getMatchedIndex("PARENT_MENU_CD", dlt_menu.getRowJSON(lastIndex).id, true, 0, dlt_menu.getTotalRow());
+		if (rowIdx == "") {
+			rowIdx = dlt_menu.getMatchedIndex("id", dlt_menu.getRowJSON(lastIndex).id, true, 0, dlt_menu.getTotalRow());
+            // 자식 요소의 인덱스
+        }
+        
+		var lastMenuCd = dlt_menu.getCellData(rowIdx[rowIdx.length - 1], "id");
+       
+        // 재귀 호출 전에 종료 조건을 명확히 설정
+        if (lastMenuCd === parentMenuCd) {
+            console.log("ro0");
+            return rowIdx[rowIdx.length - 1] + 1;
+        }
+
+		var rowIndex = scwin.getInsertRowIndex(lastMenuCd);
+		if (rowIndex !== -1) {
+            console.log("ro1");
+			return rowIndex;
+		} else {
+            console.log("ro2");
+			return rowIdx[rowIdx.length - 1] + 1;
+		}
+	} else {
+        console.log("ro3");
+		return -1;
+	}
+};
+
+/**
+ * 하위 레벨의 노드에 메뉴를 추가한다.(포커스가 잡혔는데 depth가 1~2일 경우)
+ */
+scwin.lowerLevel = function () {
+	var focusedRowIndex = grd_menu.getFocusedRealRowIndex();
+	//var focusedRowIndex = grd_menu.getFocusedRowIndex();
+	var parentMenuCd = dlt_menu.getCellData(focusedRowIndex, "PARENT_MENU_CD");
+    console.log(parentMenuCd);
+    var rowIndexArr = dlt_menu.getMatchedIndex("PARENT_MENU_CD", parentMenuCd, true, 0, dlt_menu.getTotalRow());
+	var menuLevel = com.num.parseInt(dlt_menu.getCellData(focusedRowIndex, "MENU_LEVEL")) + 1;
+    if(menuLevel > 2) {
+        com.win.alert(com.data.getMessage("MSG_CM_00100")); // 항목에 대한 하위 요소를 추가할 수 없습니다. 동일한 레벨의 항목으로 추가됩니다.
+        menuLevel = 2;
+    }
+	var sortOrder = com.num.parseInt(dlt_menu.getCellData(rowIndexArr[rowIndexArr.length - 1], "SORT_ORDER")) + 1;
+	var insertRowIndex = scwin.getInsertRowIndex(parentMenuCd);
+    console.log(insertRowIndex);
+/* 
+	if (insertRowIndex === -1) {
+		insertRowIndex = focusedRowIndex + 1;
+	} */
+	//var menuCd = scwin.getInsertRowMenuCd(parentMenuCd, menuLevel, true);
+
+	var insertJson = [{
+		"id": null,
+		"PARENT_MENU_CD": parentMenuCd,
+		"MENU_LEVEL": menuLevel,
+		"SORT_ORDER": sortOrder
+	}];
+	dlt_menu.insertJSON(insertRowIndex, insertJson);
+	grd_menu.setFocusedCell(insertRowIndex, "id", true);
+};
+
+/**
+ * 행삭제 버튼 클릭한다.
+ */
+scwin.btn_rowRemove_onclick = function () {
+	var focusRowIdx = grd_menu.getFocusedRowIndex(); // 그리드뷰 사용해 삭제대상 인덱스 얻기
+    var obj = dlt_menu.removeRow(focusRowIdx); // 데이터 삭제 (data collection 사용)
+	
+    row_cnt.setValue(dlt_menu.getRowCount()); // 전체행수 업데이트
+    var q = dlt_menu.getMatchedColumnData("MENU_LEVEL", 1, "id", true); // 질문 및 항목데이터에서 질문 추출 (id)
+    q_cnt.setValue(q.length); // 질문 수 업데이트
+	
+	for (var i = 0; i < dlt_menu.getRowCount(); i++){
+		//surQInfo.setCellData(i, "q_num", i+1); // 문제번호 순번처럼 세팅 (행인덱스,열id,넣을값)
+	}
+};
+
+/**
+ * 취소 버튼클릭시 데이타를 이전 상태로 바꾸고 추가된 것들은 삭제한다.
+ */
+scwin.btn_cancelMenu_onclick = function () {
+	com.data.undoGridView(grd_menu);
+};
+
+/**
+ * 설문 결과 버튼 클릭 시 결과 팝업 뜬다. 
+ */
+scwin.btn_participate_onclick = function(e) {
+	if (surDataList.getRowStatus(row) === "C") return;
+
+	var rowJSON = surDataMap.getJSON();
+	surDataList.getRowData(row);
+	console.log(rowJSON);
+	console.log(rowJSON.survey_id);
+
+	var data = { json_data: rowJSON, callbackFn: "scwin.btn_search_onclick" }; // 팝업에 전달할 데이터
+	var options = {
+		id: "SV007M07",
+		popupName: "설문결과",
+		width: 1200, height: 600
+	};
+	var popupUrl = "/ui/SV/SV007M07.xml";
+
+	com.win.openPopup(popupUrl, options, data);  
+};
+
+
+/**
+ * 선택사유보기 버튼 클릭 시 해당 항목에 대한 선택사유 창 뜬다.
+ */
+scwin.btn_reason_pop_onclick = function(e) {
+
+    var q_idx = this.getUserData("gen2Idx"); // 몇번째 질문인지 인덱스
+    var idx = this.getGeneratedIndex(); // 몇번째 항목인지 인덱스
+    var data;
+
+    var reasonData = dlt_reasonPopPerOption.getMatchedJSON("ID", q_idx+"_"+idx, true, 0, dlt_reasonPopPerOption.getTotalRow());
+    console.log(reasonData); // [{},{}] 형태
+
+    if(reasonData.length > 0)  {
+        data = { json_list : reasonData }; // 팝업에 전달할 데이터
+    } else {
+        data = {  }; // 팝업에 전달할 데이터
+    }
+
+	var options = {
+		id: "SV011M11",
+		popupName: "선택사유",
+		width: 400, height: 300
+	};
+	var popupUrl = "/ui/SV/SV011M11.xml";
+
+	com.win.openPopup(popupUrl, options, data);  
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group style="" id="" class="pop_contents">
+			<xf:group class="dfbox" id="" style="">
+				<w2:textbox class="" id="" label="설문결과" style="" tagname="h3"></w2:textbox>
+				<xf:group class="fr" id="" style="">
+				</xf:group>
+			</xf:group>
+			<xf:group id="grp_surveyBasic1" class="tbbox">
+				<xf:group adaptive="layout" tagname="table" style="" id="table1" class="w2tb tb" adaptiveThreshold="900">
+					<w2:attributes>
+						<w2:summary></w2:summary>
+					</w2:attributes>
+					<xf:group tagname="caption"></xf:group>
+					<xf:group tagname="colgroup">
+						<xf:group tagname="col" style="width:100px;"></xf:group>
+						<xf:group tagname="col" style="width:30%;"></xf:group>
+						<xf:group tagname="col" style="width:100px;"></xf:group>
+						<xf:group tagname="col" style="width:100.00px;"></xf:group>
+						<xf:group tagname="col" style="width:100px;"></xf:group>
+						<xf:group tagname="col"></xf:group>
+						<xf:group tagname="col" style=""></xf:group>
+					</xf:group>
+					<xf:group tagname="tr" style="">
+						<xf:group tagname="th" style="text-align: center;" class="w2tb_th">
+							<w2:attributes>
+								<w2:scope>row</w2:scope>
+							</w2:attributes>
+							<w2:textbox class="req" id="" label="제목" ref="" style="" userData2=""></w2:textbox>
+						</xf:group>
+						<xf:group tagname="td" style="" class="w2tb_td">
+							<w2:attributes>
+								<w2:colspan>6</w2:colspan>
+								<w2:rowspan>1</w2:rowspan>
+							</w2:attributes>
+							<w2:textbox id="title" label="" style="width: 90%;height: 23px;line-height: 23px;" ref="data:surDataMap.title"></w2:textbox>
+						</xf:group>
+					</xf:group>
+					<xf:group tagname="tr" style="">
+						<xf:group tagname="th" class="w2tb_th" style="text-align: center;">
+							<w2:attributes>
+								<w2:scope>row</w2:scope>
+							</w2:attributes>
+							<w2:textbox class="req" id="" label="시작일" ref="" style="" userData2=""></w2:textbox>
+						</xf:group>
+						<xf:group tagname="td" class="w2tb_td">
+							<w2:attributes></w2:attributes>
+							<w2:textbox id="start_date" label="" style="width: 150px;height: 23px;line-height: 23px;" ref="data:surDataMap.start_date"></w2:textbox>
+						</xf:group>
+						<xf:group tagname="th" class="w2tb_th" style="text-align: center;">
+							<w2:attributes>
+								<w2:scope>row</w2:scope>
+							</w2:attributes>
+							<w2:textbox class="req" id="" label="종료일" ref="" style="" userData2=""></w2:textbox>
+						</xf:group>
+						<xf:group tagname="td" class="w2tb_td">
+							<w2:attributes>
+								<w2:colspan>4</w2:colspan>
+								<w2:rowspan>1</w2:rowspan>
+							</w2:attributes>
+							<w2:textbox id="end_date" label="" style="width: 150px;height: 23px;line-height: 23px;" ref="data:surDataMap.end_date"></w2:textbox>
+						</xf:group>
+					</xf:group>
+					<xf:group tagname="tr" style=""><xf:group tagname="th" class="w2tb_th" style="text-align: center;">작성자<w2:attributes><w2:scope>row</w2:scope></w2:attributes></xf:group>
+						<xf:group tagname="td" class="w2tb_td">
+							<w2:attributes></w2:attributes>
+							<w2:textbox id="creator" label="" style="width: 150px;height: 23px;" ref="data:surDataMap.creator"></w2:textbox>
+						</xf:group>
+						<xf:group tagname="th" class="w2tb_th" style="text-align: center;">상태<w2:attributes><w2:scope>row</w2:scope></w2:attributes></xf:group>
+						<xf:group tagname="td" class="w2tb_td">
+							<w2:attributes>
+								<w2:colspan>4</w2:colspan>
+								<w2:rowspan>1</w2:rowspan>
+							</w2:attributes>
+							<w2:textbox id="state" label="" style="width: 150px;height: 23px;" ref="data:surDataMap.state"></w2:textbox>
+						</xf:group></xf:group><xf:group tagname="tr" style="">
+						<xf:group tagname="th" class="w2tb_th" style="text-align: center;">
+							등록일
+							<w2:attributes>
+								<w2:scope>row</w2:scope>
+							</w2:attributes>
+						</xf:group>
+						<xf:group tagname="td" class="w2tb_td">
+							<w2:attributes></w2:attributes>
+							<w2:textbox id="created_at" label="" style="width: 150px;height: 23px;line-height: 23px;" ref="data:surDataMap.created_at"></w2:textbox>
+						</xf:group>
+						<xf:group tagname="th" class="w2tb_th" style="text-align: center;">
+							수정일
+							<w2:attributes>
+								<w2:scope>row</w2:scope>
+							</w2:attributes>
+						</xf:group>
+						<xf:group tagname="td" class="w2tb_td">
+							<w2:attributes>
+								<w2:colspan>4</w2:colspan>
+								<w2:rowspan>1</w2:rowspan>
+							</w2:attributes>
+							<w2:textbox id="updated_at" label="" style="width: 150px;height: 23px;line-height: 23px;" ref="data:surDataMap.updated_at"></w2:textbox>
+						</xf:group>
+</xf:group>
+					<xf:group tagname="tr" style=""><xf:group tagname="th" class="w2tb_th" style="text-align: center;">참여자수<w2:attributes><w2:scope>row</w2:scope></w2:attributes></xf:group><xf:group tagname="td" class="w2tb_td"><w2:attributes><w2:colspan>6</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes><w2:textbox id="tbx_participant_number" label="" style="width: 150px;height: 23px;line-height: 23px"></w2:textbox></xf:group></xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group id="" class="tabbox">
+				<w2:tabControl adaptiveThreshold="900" useTabKeyOnly="true" useMoveNextTabFocus="false" closable="false"
+					useConfirmMessage="false" selectedIndex="0" adaptive="layout" confirmTrueAction="exist" confirmFalseAction="new" alwaysDraw="false"
+					style="" id="tac_memberInfo" class="wq_tab">
+					<w2:tabs disabled="false" style="" id="tab_memberDetail" label="설문결과"></w2:tabs>
+					<w2:content scope="true" alwaysDraw="false" frameMode="wframePreload" id="content1"></w2:content>
+				</w2:tabControl><xf:group class="dfbox" id="grp_content" style="">
+			<w2:textbox class="" id="" label=" &amp;nbsp; " style="" tagname="h3" escape="false"></w2:textbox>
+			<xf:group class="fr" id="" style="">
+				<w2:textbox class="sum" id="spn_menuCnt" label="" style=""></w2:textbox>
+				<w2:textbox class="" id="row_cnt" label="" style="display: none;" escape="false"></w2:textbox>
+				<w2:textbox class="" escape="false" id="tbx_textbox2" label=" 질문수: " style=""></w2:textbox>
+				<w2:textbox class="" id="q_cnt" label="건" style=""></w2:textbox>
+
+
+
+				
+			</xf:group>
+			<xf:group adaptiveThreshold="" class="gvwbox wq_flx" id="grp_innerContent" style="">
+				<w2:gridView autoFit="allColumn" autoFitMinWidth="1024" class="wq_gvw" dataList="data:dlt_menu" defaultCellHeight="26"
+					ev:oncellclick="scwin.grd_menu_oncellclick" ev:oneditkeyup="scwin.grd_menu_oneditkeyup" ev:onrowindexchange=""
+					ev:ontextimageclick="scwin.grd_menu_ontextimageclick" fixedColumnWithHidden="true" id="grd_menu" ignoreCellClick="false"
+					keepDefaultColumnWidth="true" rowNumVisible="" rowStatusHeaderValue="상태" rowStatusVisible="false" rowStatusWidth=""
+					scrollByColumn="false" sortable="false" style="height:243px;display: none;" useShiftKey="true" visibleRowNum="all" readOnly="true">
+					<w2:header id="header1" style="">
+						<w2:row id="row2" style="">
+							<w2:column blockSelect="false" class="req" displayMode="label" id="column11" inputType="text" style=""
+								value="미리보기" width="214">
+							</w2:column>
+						</w2:row>
+					</w2:header>
+					<w2:gBody id="gBody4" style="">
+						<w2:row id="row5" style="">
+							<w2:column blockSelect="false" class="req" depthColumn="MENU_LEVEL" depthType="div" displayMode="label"
+								id="MENU_NM" inputType="drilldown" showDepth="3" style="" textAlign="left" width="214">
+							</w2:column>
+						</w2:row>
+					</w2:gBody>
+				</w2:gridView>
+
+				<w2:generator style="width: 100%;height: 100%;" id="generator2">
+					<xf:group id="grp_outer_flex_container" style="margin-top: 20px;">
+						<xf:group id="grp_text_under_gen2" style="width: 100%;display: flex;flex-direction:column;justify-content: space-around;"><xf:group id=""><w2:textbox style="width: 150px;height: 23px;" id="tbx_question_text" label=""></w2:textbox><w2:textbox style="width: 150px;height: 23px;" id="tbx_total_responses" label=""></w2:textbox></xf:group><xf:group id="" style="display: flex;"><w2:generator style="width: 60%;" id="generator3">
+								<xf:group style="display: flex;width:100%;height: 100%;gap: 20px;" id="grp_flex_container">
+									<w2:textbox style="width: 30%;height: 23px;" id="tbx_label" label=""></w2:textbox>
+									<w2:progressbar duration="1000" min="0" max="100" valueType="percent" step="10" progressClass="type2"
+										style="width: 30%;height: 23px;" id="pgbar_label">
+									</w2:progressbar>
+									<w2:textbox id="tbx_val" label="" style="width: 10%;height: 23px;"></w2:textbox><w2:textbox style="width: 20%;height: 23px;text-align: center;" id="tbx_choice_reason" label=""></w2:textbox>
+									<xf:trigger ev:onclick="scwin.btn_reason_pop_onclick" style="width: 20%;height: 23px;"
+										id="btn_reason_pop" userData1="qIndexOfBtn" type="button" class="btn_cm pt">
+										<xf:label><![CDATA[선택사유보기]]></xf:label>
+									</xf:trigger>
+									
+								</xf:group>
+</w2:generator><w2:fusionchart seriesType="simple" drawType="javascript" runflashAt="IE6,IE7,IE8" chartType="Column2D" style="width: 40%;height: 300px;" id="fusionChart1">
+						</w2:fusionchart></xf:group></xf:group></xf:group>
+					<w2:textbox id="tbx_nodata" label="" style="width: 150px;height: 23px;"></w2:textbox>
+
+
+
+				</w2:generator>
+				
+				<w2:generator style="width: 200px;height: 100px;" id="generator4">
+					<w2:textbox id="" label="" style="width: 150px;height: 23px;"></w2:textbox>
+					<w2:textbox id="tbx_reasons" label="" style="width: 150px;height: 23px;"></w2:textbox>
+				</w2:generator>
+			</xf:group></xf:group>
+			</xf:group>
+			
+		</xf:group>
+		
+
+
+	</body>
+</html>

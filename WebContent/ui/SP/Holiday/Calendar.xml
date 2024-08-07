@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataList baseNode="list" repeatNode="map" id="dlt_schedule" saveRemovedData="true">
+            		<w2:columnInfo>
+            			<w2:column id="TITLE" name="스케쥴명" dataType="text"></w2:column>
+            			<w2:column id="ID" name="스케쥴ID" dataType="text"></w2:column>
+            			<w2:column id="START" name="시작일자" dataType="text"></w2:column>
+            			<w2:column id="END" name="종료일자" dataType="text"></w2:column>
+            			<w2:column id="themeColumn" name="themeColumn" dataType="text"></w2:column>
+            			<w2:column id="MEMO" name="스케쥴내용" dataType="text"></w2:column>
+            			<w2:column id="CATEGORY" name="스케쥴구분" dataType="text"></w2:column>
+            			<w2:column id="COLOR" name="색상" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data use="true">
+            			<w2:row>
+            				<TITLE><![CDATA[WS5 교육]]></TITLE>
+            				<ID><![CDATA[M_001]]></ID>
+            				<START><![CDATA[20230912]]></START>
+            				<END><![CDATA[20230914]]></END>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataMap baseNode="map" id="dma_select">
+            		<w2:keyInfo>
+            			<w2:key id="TITLE" name="스케쥴명" dataType="text"></w2:key>
+            			<w2:key id="ID" name="스케쥴ID" dataType="text"></w2:key>
+            			<w2:key id="START" name="시작일자" dataType="text"></w2:key>
+            			<w2:key id="END" name="종료일자" dataType="text"></w2:key>
+            			<w2:key id="themeColumn" name="themeColumn" dataType="text"></w2:key>
+            			<w2:key id="MEMO" name="스케쥴내용" dataType="text"></w2:key>
+            			<w2:key id="CATEGORY" name="스케쥴구분" dataType="text"></w2:key>
+            			<w2:key id="COLOR" name="색상" dataType="text"></w2:key>
+            		</w2:keyInfo>
+            	</w2:dataMap>
+            </w2:dataCollection>
+            <w2:workflowCollection/>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+	
+};
+
+scwin.fullCal_onaddschedule = function(rowIndex,) {
+    console.log("스케쥴이 추가됨");
+};
+
+
+scwin.fullCal_onclick = function(retObj) {
+
+    var date = retObj;
+    // 시작일
+    var start = com.date.formatDateTime(date.start);
+
+    // 종료일
+    var end = com.date.formatDateTime(date.end);
+    // var finish = WebSquare.date.dateTimeAdd(end, -1, "day");
+    ipt_start.setValue(start);
+    ipt_end.setValue(end);
+
+    console.log(end, "종료일");
+    console.log( retObj);
+
+    //등록된 일정을 클릭한 경우
+    if(retObj.id != null && retObj.title != null) {
+        console.log("등록된 일정입니다.");
+        console.log(retObj.id);
+        console.log(retObj.title);
+        
+        var selevent = dlt_schedule.getMatchedJSON( "ID", retObj.id );
+        console.log(selevent,"선택된 스케쥴");
+        console.log(selevent[0].ID,"아이디");
+
+
+        var sel = {
+            "ID" : selevent[0].ID,
+            "TITLE" : selevent[0].TITLE,
+            "START" : selevent[0].START,
+            "END" : selevent[0].END,
+            "MEMO" : selevent[0].MEMO
+        };
+
+        dma_select.setJSON(sel);
+        console.log(sel);
+
+
+        var dataObject = {
+            "type" : "json",
+            "name" : "param",
+            "data" : { "START" : start, "END" : end}
+        }
+
+        var opt = {
+            id : "pop2",
+            popupName : "상세 일정 조회",
+            modal : false,
+            width : 400,
+            height : 500,
+            type : "wframePopup",
+            dataObject : dataObject
+        };
+
+        // $p.openPopup("/ui/SP/Holiday/schedule.xml", opt);
+        com.win.openPopup("/ui/SP/Holiday/schedule.xml",opt);
+
+    } else { // 단순한 일정 추가
+        
+        var opt = {
+            id: "pop1",
+            popupName : "일정 추가 화면",
+            modal : false,
+            width: 400,
+            height: 500,
+            type: 'wframePopup',
+         };
+
+        // 
+        // com.win.openPopup("/ui/SP/Holiday/addSchedule.xml", opt);
+        $p.openPopup("/ui/SP/Holiday/addSchedule.xml", opt);
+    }
+
+    // // 클릭한 날짜가 모든 일정의 시작 또는 끝 날짜에 있는 경우
+    // if(dlt_schedule.getMatchedJSON("START", start).length > 0 ) {
+        
+    //     var date = [{
+    //         "type": "json",
+    //         "name": "date",
+    //         "data" : {"start":start},
+    //     }];
+
+    //     var opt = {  아니 왜 안넘어가 
+    //         id : "pop2",
+    //         popupName : "상세 일정 조회",
+    //         modal : false,
+    //         width : 400,
+    //         height : 500,
+    //         type : "wframePopup",
+    //         dataObject: date
+    //     }
+
+    //     $p.openPopup("/ui/SP/Holiday/schedule.xml", opt)
+
+
+
+
+    // console.log(start, typeof(start));
+    // console.log(end, typeof(end));
+    // console.log(finish, typeof(finish));
+    // console.log("날짜 클릭");
+
+    // var data = {
+    //     "st" : start,
+    //     "ed" : end
+    // }
+
+    // var schedule = {
+    //     "type" : "json",
+    //     "name" : "sche",
+    //     "data" : data
+    // }
+
+  
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group id="" style="" class="sub_contents flex_gvw">
+    		<w2:wframe style="" id="" src="../../../cm/xml/contentHeader.xml"></w2:wframe>
+    		<xf:group id="" style="" class="dfbox">
+    			<w2:textbox id="" label="Calender [ FullCalendar ]" style="width:180px;height:23px;" tagname="h3"></w2:textbox>
+    		</xf:group>
+    		<xf:group id="cal" style="display: flex;justify-content: center;margin-bottom:10px;" class="gvwbox wq_flx">
+    			<xf:input id="nameIn" style="width: 144px;height: 21px;margin-bottom:10px;"></xf:input>
+    			<w2:scheduleCalendar selectable="false" ioFormat="yyyyMMdd" id="fullCal" lang="" defaultDate="" editable="true"
+    				headerRightBtn="" titleColumn="TITLE" startColumn="START" dataList="data:dlt_schedule" style="width:650px;height:450px;" headerLeftBtn="true"
+    				idColumn="ID" headerTitle="" ev:onaddschedule="scwin.fullCal_onaddschedule" endColumn="END" titleFormatter="scwin.titleFormatter"
+    				ev:onclick="scwin.fullCal_onclick" eventLimit="true" themeColumn="themeColumn" version="3.6">
+    			</w2:scheduleCalendar>
+    		</xf:group>
+    		<xf:input id="ipt_start" style="display: none;"></xf:input>
+    		<xf:input id="ipt_end" style="display:none;"></xf:input>
+    	</xf:group>
+    </body>
+</html>

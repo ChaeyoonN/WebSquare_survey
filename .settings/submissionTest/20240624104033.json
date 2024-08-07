@@ -1,0 +1,9 @@
+{
+   "charset": "UTF-8",
+   "reqMethod": "POST",
+   "serviceURL": "http://localhost:8080/participation/view",
+   "contentType": "application/json",
+   "requestContent": "{\"surDataMap\": {\n   \"end_date\": \"SampleValue_4\",\n   \"survey_id\": \"SampleValue_0\",\n   \"creator\": \"SampleValue_2\",\n   \"updated_at\": \"SampleValue_7\",\n   \"created_at\": \"SampleValue_6\",\n   \"state\": \"SampleValue_5\",\n   \"title\": \"SampleValue_1\",\n   \"start_date\": \"SampleValue_3\"\n}}",
+   "responseContent": "{\"rsMsg\":{\"statusCode\":\"E\", \"errorCode\" : \"E0001\", \"message\":\"Session이 종료 되었습니다.\\n\",\"status\":\"Error\"}}",
+   "sendTime": "2024-06-24 10:40:33"
+}

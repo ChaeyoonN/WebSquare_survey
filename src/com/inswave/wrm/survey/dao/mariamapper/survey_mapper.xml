@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.inswave.wrm.survey.dao.SurveyDao">
+	
+	<select id="getList" parameterType="Map" resultType="Map"> 
+		SELECT 
+			survey_id, title, 
+			 DATE_FORMAT(start_date, '%Y-%m-%d') AS start_date,
+			 DATE_FORMAT(end_date, '%Y-%m-%d') AS end_date,	
+			 creator,
+			 DATE_FORMAT(created_at, '%Y-%m-%d %H:%i:%s') AS created_at,
+			 DATE_FORMAT(updated_at, '%Y-%m-%d %H:%i:%s') AS updated_at
+		FROM SURVEY
+		<where>
+			<if test="condition == 'title'">
+				AND title LIKE concat('%',#{keyword},'%')
+			</if>
+			<if test="condition == 'creator'">
+				AND creator LIKE concat('%',#{keyword},'%')
+			</if>
+		</where>
+		ORDER BY survey_id DESC
+	</select>
+	
+	<insert id="createSurvey" parameterType="Map" useGeneratedKeys="true" keyProperty="surveyId">
+    INSERT INTO Survey (title, start_date, end_date, creator, created_at, updated_at)
+    VALUES (#{title}, #{start_date}, #{end_date}, #{creator}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+	</insert>
+	
+	<insert id="createQuestion" parameterType="Map" useGeneratedKeys="true" keyProperty="questionId">
+	    INSERT INTO Survey_Question (survey_id, question_text)
+	    VALUES (#{surveyId}, #{question_text})
+	</insert>
+	
+	<insert id="createOption" parameterType="Map" useGeneratedKeys="true" keyProperty="optionId">
+	    INSERT INTO Survey_Option (survey_id, question_id, option_text)
+	    VALUES (#{surveyId}, #{questionId}, #{option_text})
+	</insert>
+	
+	<select id="getDetail" parameterType="Map" resultType="Map">
+	    SELECT 
+	        s.survey_id, 
+	        s.title, 
+	        s.start_date, 
+	        s.end_date, 
+	        s.creator, 
+	        s.created_at, 
+	        s.updated_at,
+	        q.question_id, 
+	        q.question_text,
+	        o.option_id, 
+	        o.option_text
+	    FROM 
+	        Survey s
+	    LEFT JOIN survey_Question q ON s.survey_id = q.survey_id
+	    LEFT JOIN survey_Option o ON q.question_id = o.question_id
+	    WHERE 
+	        s.survey_id = #{survey_id}
+	    ORDER BY question_id, option_id ASC
+	</select>
+	
+	<update id="updateSurveyBasic" parameterType="Map">
+		UPDATE Survey
+        SET title = #{title},
+            start_date = #{start_date},
+            end_date = #{end_date},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE survey_id = #{survey_id}
+	</update>
+	<update id="updateSurvey" parameterType="Map">
+		UPDATE Survey
+        SET title = #{title},
+            start_date = #{start_date},
+            end_date = #{end_date},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE survey_id = #{survey_id}
+	</update>
+	
+	<select id="getSurveyId" parameterType="Map" resultType="int">
+    	SELECT survey_id
+    	FROM Survey
+    	WHERE survey_id = #{survey_id}
+	</select>
+	
+	<!-- 삭제 -->
+	<delete id="deleteSurveyBasic" parameterType="Map">
+		DELETE FROM Survey WHERE survey_id = #{survey_id}
+	</delete>
+	
+	<delete id="deleteSurveyResultBySurveyId" parameterType="Map">
+        DELETE FROM Survey_Result WHERE survey_id = #{survey_id}
+    </delete>
+	<delete id="deleteSurveyOptionsBySurveyId" parameterType="Map">
+	    DELETE FROM survey_Option WHERE question_id IN (
+	        SELECT question_id FROM survey_Question WHERE survey_id = #{survey_id}
+	    )
+	</delete>
+	
+	<delete id="deleteSurveyQuestionsBySurveyId" parameterType="Map">
+	    DELETE FROM survey_Question WHERE survey_id = #{survey_id}
+	</delete>
+	
+	<!-- 설문 참여 -->
+    <insert id="saveResult" parameterType="Map" useGeneratedKeys="true" keyProperty="resultId">
+    INSERT INTO Survey_Result (survey_id, question_id, option_id, sel_option_num, reason, user_id, response_date)
+    VALUES (#{survey_id}, #{question_id}, #{option_id}, #{sel_option_num}, #{reason}, #{user_id}, CURRENT_TIMESTAMP)
+    </insert>
+    
+	<!-- 사용자의 설문 참여 여부 확인 (참:0, 거짓:1) -->
+	<select id="hasUserParticipated" parameterType="Map" resultType="boolean">
+	    SELECT CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END
+	    FROM Survey_Result
+	    WHERE survey_id = #{survey_id} AND user_id = #{user_id}
+	</select>
+	
+	<!-- 특정 사용자가 참여한 설문 리스트 조회 -->
+	<select id="getParticipatedSurveys" parameterType="Map" resultType="Map">
+		SELECT 
+			survey_id, 
+			title, 
+			DATE_FORMAT(start_date, '%Y-%m-%d') AS start_date,
+			DATE_FORMAT(end_date, '%Y-%m-%d') AS end_date,	
+			creator,
+			DATE_FORMAT(created_at, '%Y-%m-%d %H:%i:%s') AS created_at,
+			DATE_FORMAT(updated_at, '%Y-%m-%d %H:%i:%s') AS updated_at
+		FROM survey s
+		WHERE EXISTS (
+		    SELECT 1
+		    FROM Survey_Result sr
+		    WHERE sr.survey_id = s.survey_id AND sr.user_id = #{EMP_CD}
+		)
+	</select>
+	
+	<!-- 특정 사용자의 특정 설문 응답 내역 확인 -->
+	<select id="getResponse" parameterType="Map" resultType="Map">
+	    SELECT 
+	    	sr.result_id,
+	    	sr.survey_id,
+	    	sr.question_id,
+	    	sr.option_id,
+	    	sr.reason,
+	    	sr.user_id,
+	    	sr.sel_option_num,
+	    	DATE_FORMAT(sr.response_date, '%Y-%m-%d %H:%i:%s') AS response_date,
+	    	so.option_text
+	    FROM Survey_Result sr
+	    left join survey_Option so
+	    on sr.option_id  = so.option_id 
+	    WHERE sr.survey_id = #{survey_id} AND sr.user_id = #{user_id}
+	</select>
+	
+	<!-- 설문 결과: 설문 질문별 옵션 응답 수 집계 -->
+	<select id="getResponseCount" parameterType="Map" resultType="Map">
+	    SELECT 
+	        sr.survey_id,
+	        sr.question_id,
+	        sr.option_id,
+	        o.option_text,
+	        sr.sel_option_num,
+	        COUNT(sr.option_id) AS responseCount
+	    FROM
+	        survey_result sr 
+	        LEFT JOIN survey_option o 
+	        ON sr.option_id = o.option_id
+	    WHERE
+	        sr.survey_id = #{survey_id}
+	    GROUP BY
+	        sr.survey_id, sr.question_id, sr.option_id, o.option_text, sr.sel_option_num
+	</select>
+	<!-- 선택 사유 쿼리 -->
+	<select id="selectReasonsPerOption" parameterType="Map" resultType="Map">
+	    SELECT 
+	        sr.survey_id,
+	        sr.question_id,
+	        sr.option_id,
+	        sr.reason,
+	        sr.user_id,
+	        sr.response_date
+	    FROM
+	        survey_result sr
+	    WHERE
+	        sr.survey_id = #{survey_id}
+	</select>
+	<!-- 특정 설문의 참여자수 가져오기 -->
+    <select id="getParticipantCount" resultType="int">
+        SELECT
+            COUNT(DISTINCT sr.user_id) AS participantCount
+        FROM
+            survey_result sr
+        WHERE
+            sr.survey_id = #{survey_id}
+    </select>
+	
+</mapper>
